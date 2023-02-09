@@ -17,13 +17,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserService } from './shared/user.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

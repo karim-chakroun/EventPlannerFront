@@ -41,7 +41,8 @@ export class UserService {
       Email: this.formModel.value.Email,
       FullName: this.formModel.value.FullName,
       PhoneNumber: this.formModel.value.PhoneNumber,
-      Password: this.formModel.value.Passwords.Password
+      Password: this.formModel.value.Passwords.Password,
+      Role:"CUSTOMER"
     };
     return this.http.post(this.BaseURI + '/Register', body);
   }
