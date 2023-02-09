@@ -1,0 +1,9 @@
+.loginFeild{
+    margin-top: 100px;
+}
+body{
+    background-color: #f6f7fc;
+}
+mat-form-field{
+    width: 275px;
+}

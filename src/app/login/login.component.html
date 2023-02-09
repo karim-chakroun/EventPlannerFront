@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 loginFeild">
+
+
+            <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+                <h4>Login to <b>Our application</b> </h4>
+                <p>Lorem ipsum dolor sit amet elit. <br> Sapiente sit aut eos consectetur adipisicing.</p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Your username" class="form-control" #Username="ngModel" name="userName" [(ngModel)]="formModel.userName" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Your password" class="form-control" #Password="ngModel" name="password" [(ngModel)]="formModel.password" required>
+                </mat-form-field>
+                <br>
+                <button type="submit" mat-raised-button color="accent" class="w-50 btn-lg" [disabled]="form.invalid">Log In</button>
+
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <div class="bg order-1 order-md-2" style="background-image: url('assets/img/LoginImage.jpg');"></div>
+            <img src="assets/img/RegistrationImage.jpg" width="650" height="627" alt="">
+
+        </div>
+    </div>
+
+</div>
