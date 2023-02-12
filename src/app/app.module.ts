@@ -18,6 +18,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserService } from './shared/user.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HeaderComponent } from './header/header.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { HeaderComponent } from './header/header.component';
     MatCardModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatRadioModule,
   ],
   providers: [
     UserService, {
