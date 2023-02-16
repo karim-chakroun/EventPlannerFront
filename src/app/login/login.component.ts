@@ -28,13 +28,13 @@ export class LoginComponent implements OnInit {
     this.service.login(form.value).subscribe(
       (res:any)=>{
 
-        this.snackBar.open("connected", "welcom!");
+        this.snackBar.open("Connected", "Welcom!");
         localStorage.setItem('token',res.token);
-        this.router.navigateByUrl('/accueil');
+        this.router.navigateByUrl('/dashboard');
 
       },
       err=>{
-        this.snackBar.open("wrong password", "try again");
+        this.snackBar.open("Wrong password", "Try again");
       }
 
     );

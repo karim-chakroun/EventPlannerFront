@@ -8,12 +8,12 @@
                 <p>Lorem ipsum dolor sit amet elit. <br> Sapiente sit aut eos consectetur adipisicing.</p>
                 <mat-form-field class="example-full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Your username" class="form-control" #Username="ngModel" name="userName" [(ngModel)]="formModel.userName" required>
+                    <input matInput placeholder="Your username"  #Username="ngModel" name="userName" [(ngModel)]="formModel.userName" required>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input type="password" matInput placeholder="Your password" class="form-control" #Password="ngModel" name="password" [(ngModel)]="formModel.password" required>
+                    <input type="password" matInput placeholder="Your password"  #Password="ngModel" name="password" [(ngModel)]="formModel.password" required>
                 </mat-form-field>
                 <br>
                 <button type="submit" mat-raised-button color="accent" class="w-50 btn-lg" [disabled]="form.invalid">Log In</button>

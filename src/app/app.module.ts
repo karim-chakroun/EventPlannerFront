@@ -19,6 +19,14 @@ import { UserService } from './shared/user.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HeaderComponent } from './header/header.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,10 @@ import {MatRadioModule} from '@angular/material/radio';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    ProfileComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +53,11 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatSnackBarModule,
     MatRadioModule,
+
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatDividerModule,
   ],
   providers: [
     UserService, {

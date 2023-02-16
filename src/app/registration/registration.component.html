@@ -1,66 +1,51 @@
 <div class="container">
-
-  
-  
   <div class="row">
     <div class="col-md-6 loginFeild">
       <h3>Sign Up to <b>our Application</b> </h3>
-
-
       <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="example-full-width">
               <mat-label>Username</mat-label>
-              <input matInput placeholder="Your username" class="form-control" formControlName="UserName" required>
+              <input matInput placeholder="Your username" formControlName="UserName" required>
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field class="example-full-width">
               <mat-label>FullName</mat-label>
-              <input matInput placeholder="Your FullName" class="form-control" formControlName="FullName" required>
+              <input matInput placeholder="Your FullName" formControlName="FullName" required>
             </mat-form-field>
           </div>
 
           <div class="col-md-8">
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Your Email" class="form-control" formControlName="Email"
-                required>
+              <input type="email" matInput placeholder="Your Email" formControlName="Email" required>
             </mat-form-field>
           </div>
           <div class="col-md-4">
             <mat-form-field class="example-full-width">
               <mat-label>PhoneNumber</mat-label>
-              <input matInput placeholder="Your PhoneNumber" class="form-control" formControlName="PhoneNumber"
-                required>
+              <input matInput placeholder="Your PhoneNumber" formControlName="PhoneNumber" required>
             </mat-form-field>
           </div>
           <div formGroupName="Passwords">
             <mat-form-field class="example-full-width">
               <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Your Password" class="form-control"
-                formControlName="Password" required>
+              <input type="password" matInput placeholder="Your Password" formControlName="Password" required>
             </mat-form-field>
             <mat-form-field class="example-full-width">
               <mat-label>ConfirmPassword</mat-label>
-              <input type="password" matInput placeholder="Confirm Your Password" class="form-control"
-                formControlName="ConfirmPassword" required>
+              <input type="password" matInput placeholder="Confirm Your Password" formControlName="ConfirmPassword"
+                required>
             </mat-form-field>
           </div>
           <label id="example-radio-group-label">Pick your role</label>
-          <mat-radio-group aria-label="Select an option" class="form-control" formControlName="Role">
-            <mat-radio-button value="CUSTOMER">Service requester</mat-radio-button>
+          <mat-radio-group aria-label="Select an option" formControlName="Role">
+            <mat-radio-button value="DEMANDEUR">Service requester</mat-radio-button>
             <mat-radio-button value="FOURNISSEUR">Service provider</mat-radio-button>
           </mat-radio-group>
-
         </div>
-
-
-
-
-
-
         <div class="form-row">
           <div class="form-group col-md-12">
             <br>
@@ -69,13 +54,10 @@
           </div>
         </div>
       </form>
-
     </div>
     <div class="col-md-6">
       <div class="bg order-1 order-md-2" style="background-image: url('assets/img/LoginImage.jpg');"></div>
       <img src="assets/img/RegisterImage.png" width="100%" height="100%" alt="">
-
     </div>
   </div>
-
 </div>

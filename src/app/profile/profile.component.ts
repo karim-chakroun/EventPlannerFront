@@ -3,15 +3,18 @@ import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class HeaderComponent implements OnInit {
-
+export class ProfileComponent implements OnInit{
   constructor(private router:Router,private service:UserService) { }
   userDetails;
   ngOnInit(): void {
+    this.userProfile();
+  }
+
+  userProfile(){
     if(localStorage.getItem('token') != null){
 
       this.service.getUserProfile().subscribe(
@@ -25,12 +28,6 @@ export class HeaderComponent implements OnInit {
       );
 
     }
-    
-  }
-
-  onLogout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
   }
 
 }
