@@ -27,6 +27,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { MyServicesComponent } from './my-services/my-services.component';
+
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AddServicesComponent } from './add-services/add-services.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -37,7 +45,9 @@ import {MatDividerModule} from '@angular/material/divider';
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
-    SidebarComponent
+    SidebarComponent,
+    MyServicesComponent,
+    AddServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,11 +63,16 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatSnackBarModule,
     MatRadioModule,
+    MatDialogModule,
 
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
     MatDividerModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
   ],
   providers: [
     UserService, {

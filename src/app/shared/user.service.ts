@@ -44,6 +44,7 @@ export class UserService {
       PhoneNumber: this.formModel.value.PhoneNumber,
       Password: this.formModel.value.Passwords.Password,
       Role:this.formModel.value.Role,
+      adresse:"test"
     };
     return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }

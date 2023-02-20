@@ -1,0 +1,63 @@
+<div class="container">
+    <h1 mat-dialog-title>Add Service</h1>
+    <div mat-dialog-content>
+
+
+
+        <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+            <div class="row" align="center">
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>serviceName</mat-label>
+                        <input matInput placeholder="Ex. Pizza" formControlName="serviceName">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Type</mat-label>
+                        <input matInput placeholder="Ex. Pizza" formControlName="type">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Price</mat-label>
+                        <input matInput placeholder="Ex. Pizza" formControlName="prix">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Promotion</mat-label>
+                        <input matInput placeholder="Ex. 50%" formControlName="promotion">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-7">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Video Link</mat-label>
+                        <input matInput placeholder="Ex. 50%" formControlName="video">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-checkbox formControlName="avalable" >Available</mat-checkbox>
+                </div>
+            </div>
+
+
+            <br>
+            <div mat-dialog-actions align="center">
+
+                <button mat-raised-button color="accent" type="submit">Add Service</button>
+                <button mat-raised-button mat-dialog-close>Annuler</button>
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div>

@@ -4,7 +4,7 @@
 
 
             <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)" >
-                <h4>Login to <b>Our application</b> </h4>
+                <h4>Login to <b>Event Planner</b> </h4>
                 <p>Lorem ipsum dolor sit amet elit. <br> Sapiente sit aut eos consectetur adipisicing.</p>
                 <mat-form-field class="example-full-width">
                     <mat-label>Username</mat-label>
@@ -19,6 +19,11 @@
                 <button type="submit" mat-raised-button color="accent" class="w-50 btn-lg" [disabled]="form.invalid">Log In</button>
 
             </form>
+            <div>
+                <a routerLink="/registration">Create your account</a>
+                
+            </div>
+            
 
         </div>
         <div class="col-md-6">

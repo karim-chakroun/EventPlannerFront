@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { MyServicesComponent } from './my-services/my-services.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -25,6 +26,13 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: ProfileComponent }
+    ]
+  },
+  {
+    path: 'myservices',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: MyServicesComponent }
     ]
   },
 ];
