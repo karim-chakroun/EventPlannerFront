@@ -15,18 +15,11 @@ mat-sidenav {
 }
 
 .content {
-    
-    
-    
-
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-
     background-color: white;
     margin-left: 20px;
-    
     color: lightgray;
 }
 

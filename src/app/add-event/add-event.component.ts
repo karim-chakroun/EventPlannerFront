@@ -3,6 +3,9 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { EventsService } from '../shared/events.service';
 import { MyServicesService } from '../shared/my-services.service';
+import { Router } from '@angular/router';
+import { EventsComponent } from '../events/events.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-event',
@@ -17,63 +20,40 @@ import { MyServicesService } from '../shared/my-services.service';
 })
 export class AddEventComponent implements OnInit {
 
-  fruits: any[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
-
-  remove(fruit): void {
-    const index = this.fruits.indexOf(fruit);
-
-    if (index >= 0) {
-      this.fruits.splice(index, 1);
-    }
-  }
 
 
   firstFormGroup = this._formBuilder.group({
     type: ['', Validators.required],
-  
-  });
-  secondFormGroup = this._formBuilder.group({
     EventName: ['', Validators.required],
-    Adresse: ['', Validators.required],
     Description: ['', Validators.required],
     DateDebut: ['', Validators.required],
     DateFin: ['', Validators.required],
+  
   });
-
-  searchText=null;
-
-
   constructor(private _formBuilder: FormBuilder,
     private service:EventsService,
-    private myServiceService:MyServicesService) {}
+    private router:Router,
+    public dialogRef: MatDialogRef<EventsComponent>,) {}
   ngOnInit(): void {
-    this.getService();
+    
   }
 
+  MyEvent;
   onSubmit(){
     var body = {
       type: this.firstFormGroup.value.type,
-      EventName: this.secondFormGroup.value.EventName,
-      Adresse: this.secondFormGroup.value.Adresse,
-      Description: this.secondFormGroup.value.Description,
-      DateDebut: this.secondFormGroup.value.DateDebut,
-      DateFin:this.secondFormGroup.value.DateFin,
+      EventName: this.firstFormGroup.value.EventName,
+      Description: this.firstFormGroup.value.Description,
+      DateDebut: this.firstFormGroup.value.DateDebut,
+      DateFin:this.firstFormGroup.value.DateFin,
       
     };
-    this.service.AddEvent(body).subscribe()
-
-  }
-
-  MyServices;
-  getService(){
-    this.myServiceService.getServices().subscribe(
+    this.service.AddEvent(body).subscribe(
       res =>{
-        this.MyServices = res;
-      },
-      err =>{
-        console.log(err);
+        this.MyEvent = res;
+        this.router.navigateByUrl('/event/'+this.MyEvent.idEvent);
+        this.dialogRef.close();
       }
-
-    );
+    )
   }
 }

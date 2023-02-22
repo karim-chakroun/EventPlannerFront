@@ -1,0 +1,80 @@
+<div class="container">
+    <mat-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Add a cover photo:</ng-template>
+
+                <h6>Cover photo</h6>
+                <div class="card cover" align="center">
+                    <button mat-stroked-button class="coverBtn">
+                        <mat-icon> insert_photo</mat-icon>
+                        Import a cover photo</button>
+                </div>
+                <div align="end">
+
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+                </mat-form-field>
+                <div>
+                    <p>Go to a different step to see the error state</p>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Add services</ng-template>
+            <div class="row servRow">
+                <div class="col-md-8 scroll">
+                    <mat-card>
+                        <mat-card-content>
+                            <div class="row">
+                                <div class="col-md-4" *ngFor="let s of MyServices">
+                                    <div class="card" style="width: 12rem;">
+                                        <img src="assets/img/food.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{s.serviceName}}</h5>
+                                            <p class="card-text">{{s.description}}</p>
+                                            <a href="#" class="btn btn-primary">Add Service</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-md-4">
+                    <mat-card class="ex">
+                        <mat-card-content>
+                            <h3>Cost:</h3>
+                            <p>100$</p>
+                            <p>Services:</p>
+                            <mat-chip-grid #chipGrid aria-label="Enter fruits">
+                                <mat-chip-row *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                                    {{fruit.name}}
+                                    <button matChipRemove>
+                                        <mat-icon>cancel</mat-icon>
+                                    </button>
+                                </mat-chip-row>
+                            </mat-chip-grid>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

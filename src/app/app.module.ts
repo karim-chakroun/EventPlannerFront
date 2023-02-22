@@ -45,6 +45,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MyServicesComponent,
     AddServicesComponent,
     EventsComponent,
-    AddEventComponent
+    AddEventComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

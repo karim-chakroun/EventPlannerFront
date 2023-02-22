@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -41,6 +42,13 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: EventsComponent }
+    ]
+  },
+  {
+    path: 'event/:id',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: EventComponent }
     ]
   },
 ];
