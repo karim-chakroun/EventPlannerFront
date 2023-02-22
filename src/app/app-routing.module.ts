@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyServicesComponent } from './my-services/my-services.component';
@@ -33,6 +34,13 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: MyServicesComponent }
+    ]
+  },
+  {
+    path: 'myevents',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: EventsComponent }
     ]
   },
 ];

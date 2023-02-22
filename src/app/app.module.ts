@@ -35,6 +35,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddServicesComponent } from './add-services/add-services.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EventsComponent } from './events/events.component';
+
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { AddEventComponent } from './add-event/add-event.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -47,7 +57,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ProfileComponent,
     SidebarComponent,
     MyServicesComponent,
-    AddServicesComponent
+    AddServicesComponent,
+    EventsComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +85,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSortModule,
     MatPaginatorModule,
     MatCheckboxModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatChipsModule,
+
+    ScheduleModule,
   ],
   providers: [
     UserService, {
