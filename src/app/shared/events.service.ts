@@ -15,4 +15,8 @@ export class EventsService {
   AddEvent(formData){
     return this.http.post(this.BaseURI + '/Event', formData);
   }
+
+  getUserEvents(userId){
+    return this.http.get(this.BaseURI+ '/Event/GetUserEvents?userId='+userId);
+  }
 }

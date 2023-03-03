@@ -46,6 +46,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import { EventComponent } from './event/event.component';
+import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -92,6 +95,9 @@ import { EventComponent } from './event/event.component';
     MatNativeDateModule,
     MatSelectModule,
     MatChipsModule,
+    MatListModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
 
     ScheduleModule,
   ],

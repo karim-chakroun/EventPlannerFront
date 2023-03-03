@@ -1,7 +1,8 @@
-<form [formGroup]="firstFormGroup" (submit)="onSubmit()">
+<form [formGroup]="firstFormGroup" (submit)="onSubmit(userDetails.id)">
     <div mat-dialog-content>
         <div class="row">
             <div class="col-md-5">
+                {{userDetails.Id}}
                 <mat-form-field appearance="outline">
                     <mat-label>Event Name</mat-label>
                     <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="EventName" required>

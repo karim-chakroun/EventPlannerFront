@@ -6,6 +6,7 @@ import { MyServicesService } from '../shared/my-services.service';
 import { Router } from '@angular/router';
 import { EventsComponent } from '../events/events.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-add-event',
@@ -32,20 +33,23 @@ export class AddEventComponent implements OnInit {
   });
   constructor(private _formBuilder: FormBuilder,
     private service:EventsService,
+    private userService:UserService,
     private router:Router,
     public dialogRef: MatDialogRef<EventsComponent>,) {}
   ngOnInit(): void {
+    this.userProfile();
     
   }
 
   MyEvent;
-  onSubmit(){
+  onSubmit(userId){
     var body = {
       type: this.firstFormGroup.value.type,
       EventName: this.firstFormGroup.value.EventName,
       Description: this.firstFormGroup.value.Description,
       DateDebut: this.firstFormGroup.value.DateDebut,
       DateFin:this.firstFormGroup.value.DateFin,
+      UserId:userId
       
     };
     this.service.AddEvent(body).subscribe(
@@ -55,5 +59,22 @@ export class AddEventComponent implements OnInit {
         this.dialogRef.close();
       }
     )
+  }
+
+  userDetails;
+  userProfile(){
+    if(localStorage.getItem('token') != null){
+
+      this.userService.getUserProfile().subscribe(
+        res =>{
+          this.userDetails = res;
+        },
+        err =>{
+          console.log(err);
+        }
+  
+      );
+
+    }
   }
 }

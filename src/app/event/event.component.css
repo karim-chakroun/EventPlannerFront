@@ -1,5 +1,5 @@
 .mat-mdc-form-field {
-    margin-top: 16px;
+    
 }
 
 mat-form-field {
@@ -37,4 +37,31 @@ mat-stepper {
 }
 .servRow{
     margin-top: 2%;
+}
+.exe{
+    margin-top: 10px;
+}
+.adress{
+    margin-top: 10px;
+}
+
+.search{
+    height: 3.5rem
+}
+
+.mat-stroked-button{
+    vertical-align: bottom;
+}
+.card-text{
+    font-size: 14px;
+    color: gray;
+}
+.notify-badge{
+    position: absolute;
+    align-items: right !important;
+    width: 5rem;
+}
+
+.card-img-top{
+    align-items: right !important;
 }
