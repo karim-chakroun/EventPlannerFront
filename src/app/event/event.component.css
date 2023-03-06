@@ -65,3 +65,7 @@ mat-stepper {
 .card-img-top{
     align-items: right !important;
 }
+mat-chip-row{
+    margin-right: 3px;
+    margin-bottom: 2px;
+}
