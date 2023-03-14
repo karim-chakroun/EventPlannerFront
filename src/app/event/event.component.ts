@@ -58,14 +58,14 @@ export class EventComponent implements OnInit {
   searchForm = new FormControl();
   ngOnInit(): void {
     this.getServices();
-    this.INTERN.setValue('true');
+    this.INTERN.setValue('true'); //intern
     //this.paginateData();
   }
 
   remove(serv): void {
-    const index = this.servicesList.indexOf(serv);
+    const index = this.servicesList?.indexOf(serv); // serv
 
-    
+
     if (index >= 0) {
       this.servicesList.splice(index, 1);
       this.sum = this.sum - serv.prix;
@@ -100,7 +100,7 @@ export class EventComponent implements OnInit {
       name: nameValue,
       prix: prixValue,
     });
-    
+
     this.sum = this.sum + prixValue;
   }
 
@@ -111,22 +111,26 @@ export class EventComponent implements OnInit {
   SearchServices(search) {
     this.searchResult = search;
     this.MyServices = null;
-    this.empty = true;
-    this.getServices();
-    this.myServiceServices.getEbayServices(search).subscribe(
-      res => {
-        this.EbayServices = res;
-        for (let e of this.EbayServices) {
-          this.MyServices.push(e);
 
+    this.getServices();
+    if (this.EBAY.value) {
+      this.empty = true;
+      this.myServiceServices.getEbayServices(search).subscribe(
+        res => {
+          this.EbayServices = res;
+          for (let e of this.EbayServices) {
+            this.MyServices.push(e);
+
+          }
+          this.paginateData();
+          this.empty = false;
+        },
+        err => {
+          console.log(err);
         }
-        this.paginateData();
-        this.empty = false;
-      },
-      err => {
-        console.log(err);
-      }
-    );
+      );
+    }
+
 
   }
 
@@ -138,17 +142,17 @@ export class EventComponent implements OnInit {
         return (this.INTERN.value && (!this.searchResult || Object.values(service).some(val => String(val).toLowerCase().includes(this.searchResult.toLowerCase()))));
       } else {
         return (this.EBAY.value && service.provider === 'EBAY') ||
-               (this.AMAZON.value && service.provider === 'AMAZON');
+          (this.AMAZON.value && service.provider === 'AMAZON');
       }
     });
     this.paginateData();
   }
-  
+
 
   // define a variable to hold the filtered data
   filteredData: Array<any> = [];
 
-  
+
 
   sumCost() {
 

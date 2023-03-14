@@ -44,4 +44,7 @@ export class MyServicesService {
   getEbayServices(search){
     return this.http.get(this.BaseURI+ '/Services/Ebay?search='+search);
   }
+  getLatestServices(){
+    return this.http.get(this.BaseURI+ '/Services/GetLatestServices');
+  }
 }

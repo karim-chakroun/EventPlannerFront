@@ -1,85 +1,123 @@
-
 <div class="container">
-    
-
-
-      <div class="container home">
-        <div class="row">
-            <p></p>
-            <p></p>
-            <br>
-            <br>
-    
-            <div class="col-md-5" style="margin-top: 50px;">
-    
-                <div class=""></div>
-                <img src="assets/img/shoesLogo.png" alt="">
-    
+    <div class="container home">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="col-md-7" style="margin-top: 50px;">
-                <div class="row">
-                    <h1>NEW FEATURE !</h1>
-                    <h3>CUSTOM YOUR SHOES RIGHT AWAY ON OUR WEBSITE.</h3>
-                    <br>
-    
-                    <div class="col-md-5"></div>
-                    <div class="col-md-3">
-                        
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/Event1.png" alt="">
+
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Our Events</h1>
+                            <p>Some pictures of our best events.</p>
+                            
+                        </div>
                     </div>
-                    <div class="col-md-4"></div>
-    
-    
                 </div>
-    
-    
-            </div>
-    
-    
-            <div class="col-md-6">
-                <img src="assets/img/Schedule-bro.png" width="500px" height="500px" alt="">
-            </div>
-            <div class="col-md-6" align="center">
-    
-                <h2>CUSTOM</h2>
-                <div class="col-7">
-    
-                    <p style="margin-top: 50px;">
-    
-                        In this step we help our customers to get inspired and imagine their own ideas that represent them
-                        and all we have to do is to turn that imagination into reality.
-                    </p>
-                    <button mat-stroked-button color="warn">RENOVATE MY SHOE</button>
-                    <hr style="margin-top: 150px;">
+                <div class="carousel-item">
+                    <img src="assets/img/Event2.png" alt="">
+
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Our Events</h1>
+                            <p>Some pictures of our best events.</p>
+                            
+                        </div>
+                    </div>
                 </div>
-    
-    
-            </div>
-    
-    
-            <div class="col-md-6" align="center">
-    
-                <h2>RENOVATE</h2>
-                <div class="col-7">
-    
-                    <p style="margin-top: 50px;">
-                        This service consits of renovating shoes & reparing them, moving oxidation from most materials in
-                        order
-                        to give old sneakers a new life.
-                    </p>
-                    <button mat-stroked-button color="warn">RENOVATE MY SHOE</button>
+                <div class="carousel-item">
+                    <img src="assets/img/Event3.png" alt="">
+
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Our Events</h1>
+                            <p>Some pictures of our best events.</p>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <img src="assets/img/Schedule-amico.png" width="500px" height="500px" alt="">
-                
-            </div>
-    
-            
-    
-    
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    
-    
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <h1 align="center">Our latest services</h1>
+            <div class="row" >
+                <div class="col-lg-4" *ngFor="let s of MyServices">
+                    <img src="assets/img/food.png" alt="" class="bd-placeholder-img rounded-circle" width="140" height="140"
+                     role="img" aria-label="Placeholder: 140x140"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    
+
+                    <h2>{{s.serviceName}}</h2>
+                    <p>{{s.description}}.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Organize your events. <span class="text-muted">It’s easy!</span></h2>
+                    <p class="lead">You can check your calender and organize your events.</p>
+                </div>
+                <div class="col-md-5">
+                    <img src="assets/img/Schedule-amico.png" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500" role="img" aria-label="Placeholder: 500x500"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    
+
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
+                            yourself.</span></h2>
+                    <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of
+                        how this layout would work with some actual real-world content in place.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    
+                    <img src="assets/img/Schedule-bro.png" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500" role="img" aria-label="Placeholder: 500x500"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            
+
+            
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
     </div>
 </div>
 
