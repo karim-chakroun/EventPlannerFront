@@ -55,7 +55,7 @@ export class AddEventComponent implements OnInit {
     this.service.AddEvent(body).subscribe(
       res =>{
         this.MyEvent = res;
-        this.router.navigateByUrl('/event/'+this.MyEvent.idEvent);
+        this.router.navigateByUrl('/eventPage/'+this.MyEvent.idEvent);
         this.dialogRef.close();
       }
     )

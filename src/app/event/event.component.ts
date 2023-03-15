@@ -1,8 +1,11 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+import { EventsService } from '../shared/events.service';
 import { MyServicesService } from '../shared/my-services.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-event',
@@ -16,7 +19,17 @@ import { MyServicesService } from '../shared/my-services.service';
   ],
 })
 export class EventComponent implements OnInit {
+  @Input() item = '';
 
+
+  AffectationFormGroup = this._formBuilder.group({
+    type: ['', Validators.required],
+    EventName: ['', Validators.required],
+    Description: ['', Validators.required],
+    DateDebut: ['', Validators.required],
+    DateFin: ['', Validators.required],
+
+  });
   // define variables to hold the page index and page size
   pageIndex = 0;
   pageSize = 6;
@@ -52,11 +65,16 @@ export class EventComponent implements OnInit {
   categoryList: string[] = ['Food', 'Accessories', 'Clothes', 'Real estate', 'Hardware', 'Art', 'Books'];
   allServices: any[] = [];
   servicesList: any[] = [];
+
   constructor(private _formBuilder: FormBuilder,
-    private myServiceServices: MyServicesService,) { }
+    private myServiceServices: MyServicesService,
+    private userService: UserService,
+    private eventService: EventsService,
+    private router:Router) { }
 
   searchForm = new FormControl();
   ngOnInit(): void {
+    this.userProfile();
     this.getServices();
     this.INTERN.setValue('true'); //intern
     //this.paginateData();
@@ -94,11 +112,12 @@ export class EventComponent implements OnInit {
   }
   sum = 0;
 
-  AddServiceChip(idValue, nameValue, prixValue) {
+  AddServiceChip(idValue, nameValue, prixValue, provider) {
     this.servicesList.push({
       id: idValue,
       name: nameValue,
       prix: prixValue,
+      provider: provider
     });
 
     this.sum = this.sum + prixValue;
@@ -153,9 +172,54 @@ export class EventComponent implements OnInit {
   filteredData: Array<any> = [];
 
 
+  affectationBody: any[] = [];
+  ExternAffectationBody: any[] = [];
+  AffectServicesToEvent(userId) {
+    for (let SelectedServices of this.servicesList) {
+      if (SelectedServices.provider == 'INTERN') {
 
-  sumCost() {
+        this.affectationBody.push({
+          serviceFk: SelectedServices.id,
+          eventFk: this.item,
+          userFk: userId
+        })
+      }
+      else {
+        this.ExternAffectationBody.push({
+          serviceName: SelectedServices.name,
+          lien: 'www.ebay.com',
+          provider: SelectedServices.provider,
+          eventFk: this.item
+        })
+
+      }
+
+    }
+
+    this.myServiceServices.AffectServiceToEvent(this.affectationBody).subscribe(
+    );
+    this.myServiceServices.AffectExternServiceToEvent(this.ExternAffectationBody).subscribe(
+    );
+    this.eventService.putEventSteps(this.item).subscribe(
+    );
+    window.location.reload();
+  }
+
+  userDetails;
+  userProfile() {
+
+    this.userService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res;
+      },
+      err => {
+        console.log(err);
+      }
+
+    );
 
   }
+
+
 
 }

@@ -12,7 +12,7 @@
                 <mat-card class="example-card">
 
                     <mat-card-header>
-                        <a mat-card-title [routerLink]="['/event',e.idEvent]">{{e.eventName| titlecase}}</a>
+                        <a mat-card-title [routerLink]="['/eventPage',e.idEvent]">{{e.eventName| titlecase}}</a>
                         <mat-card-subtitle>From {{e.dateDebut| date:"MM/dd/yy HH:mm"}} AM until {{e.dateFin| date:"MM/dd/yy HH:mm"}} AM </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content>

@@ -19,4 +19,10 @@ export class EventsService {
   getUserEvents(userId){
     return this.http.get(this.BaseURI+ '/Event/GetUserEvents?userId='+userId);
   }
+  putEventSteps(eventId){
+    return this.http.put(this.BaseURI+ '/Event/'+eventId,'');
+  }
+  getEventById(eventId){
+    return this.http.get(this.BaseURI+ '/Event/'+eventId);
+  }
 }

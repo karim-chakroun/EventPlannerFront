@@ -47,4 +47,10 @@ export class MyServicesService {
   getLatestServices(){
     return this.http.get(this.BaseURI+ '/Services/GetLatestServices');
   }
+  AffectServiceToEvent(formData){
+    return this.http.post(this.BaseURI + '/Notification', formData);
+  }
+  AffectExternServiceToEvent(formData){
+    return this.http.post(this.BaseURI + '/ExternServices', formData);
+  }
 }

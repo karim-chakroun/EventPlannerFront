@@ -53,7 +53,7 @@
                                                 <p><span class="card-text">{{s.description | titlecase}}</span></p>
 
                                                 <a mat-stroked-button color="basic"
-                                                    (click)="AddServiceChip(s.idService,s.serviceName,s.prix)">Add
+                                                    (click)="AddServiceChip(s.idService,s.serviceName,s.prix,s.provider)">Add
                                                     Service</a>
                                             </div>
                                         </div>
@@ -142,8 +142,9 @@
                     </mat-card>
                     <mat-card class="exe">
                         <mat-card-content>
-                            <p><b>Cost: </b> {{sum}}$</p>
+                            <p><b>Cost: </b> {{sum | number : '1.2-2'}}$</p>
                             <p><b>Services:</b> </p>
+
 
                             <mat-chip-row *ngFor="let serv of servicesList" (removed)="remove(serv)">
                                 {{serv.name.split(' ').slice(0, 3).join(' ')}}
@@ -154,12 +155,22 @@
 
                         </mat-card-content>
                     </mat-card>
+                    <div>
+
+
+                    </div>
+
                 </div>
             </div>
             <p>You are now done.</p>
             <div>
+
                 <button mat-button matStepperPrevious>Back</button>
                 <button mat-button (click)="stepper.reset()">Reset</button>
+                <div align="end">
+                    <button mat-raised-button (click)="AffectServicesToEvent(userDetails.id)"
+                        color="primary">Finish</button>
+                </div>
             </div>
         </mat-step>
     </mat-stepper>
