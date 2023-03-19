@@ -50,6 +50,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { EventPageComponent } from './event-page/event-page.component';
+import { CommandsComponent } from './commands/commands.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { EventPageComponent } from './event-page/event-page.component';
     EventsComponent,
     AddEventComponent,
     EventComponent,
-    EventPageComponent
+    EventPageComponent,
+    CommandsComponent
   ],
   imports: [
     BrowserModule,

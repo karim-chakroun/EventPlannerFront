@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommandsComponent } from './commands/commands.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events/events.component';
@@ -36,6 +37,13 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: MyServicesComponent }
+    ]
+  },
+  {
+    path: 'commands',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: CommandsComponent }
     ]
   },
   {
