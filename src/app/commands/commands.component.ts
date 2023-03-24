@@ -21,7 +21,7 @@ export class CommandsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  displayedColumns: string[] = ['service', 'dateNotif', 'user', 'event', 'content','action'];
+  displayedColumns: string[] = ['service', 'dateNotif', 'user', 'event', 'content'];
   dataSource: any;
   empdata: any;
   MyServices;
@@ -81,6 +81,43 @@ export class CommandsComponent implements OnInit {
       );
 
     }
+  }
+
+  stateRejected(id,sender){
+    this.service.changeState(id,'Rejected').subscribe(
+      res => {
+        this.service.EmailService(sender,'Rejected','we are sorry, your command is rejected.').subscribe();
+        this.getUserCommands();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
+  }
+  stateInPorgress(id,sender){
+    this.service.changeState(id,'In porgress').subscribe(
+      res => {
+        this.service.EmailService(sender,'In porgress','Your command is in progress').subscribe();
+        this.getUserCommands();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
+  }
+  stateDone(id,sender){
+    this.service.changeState(id,'Done').subscribe(
+      res => {
+        this.service.EmailService(sender,'Command ready','Your command is in ready').subscribe();
+        this.getUserCommands();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
   }
 
 }

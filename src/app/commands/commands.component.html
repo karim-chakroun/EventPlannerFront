@@ -1,4 +1,4 @@
-<div class="content">
+<div class="container">
     <div>
 
         <div align="left">
@@ -37,29 +37,28 @@
                 <td mat-cell *matCellDef="let element"> {{element.event.eventName | titlecase}} </td>
             </ng-container>
 
+            
+
             <!-- Symbol Column -->
 
 
             <ng-container matColumnDef="content">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> State </th>
-                <td mat-cell *matCellDef="let element"> {{element.content | titlecase}} </td>
-            </ng-container>
+                <td mat-cell *matCellDef="let element">
 
-            <ng-container matColumnDef="action">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> Action </th>
-                <td mat-cell *matCellDef="let element" style="position: relative;" align="center">
                     <mat-form-field class="act" appearance="outline">
-                        <mat-label>Action</mat-label>
+                        <mat-label>{{element.content }} </mat-label>
                         <mat-select>
-                            <mat-option value="To do">To do</mat-option>
 
-                            <mat-option value="In progress">In progress</mat-option>
-                            <mat-option value="Done">Done</mat-option>
-                            <mat-option value="Reject">Reject</mat-option>
+                            <mat-option (click)="stateInPorgress(element.idNotification,element.user.email)" value="In progress">In progress</mat-option>
+                            <mat-option (click)="stateDone(element.idNotification,element.user.email)" value="Done">Done</mat-option>
+                            <mat-option (click)="stateRejected(element.idNotification,element.user.email)" value="Reject">Reject</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>
             </ng-container>
+
+            
 
 
 

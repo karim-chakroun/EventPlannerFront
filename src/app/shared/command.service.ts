@@ -16,4 +16,19 @@ export class CommandService {
   getUserCommands(userId) {
     return this.http.get(this.BaseURI + '/Notification?userId=' + userId);
   }
+  changeState(id,state) {
+    var body = {
+      content:state
+    };
+    return this.http.put(this.BaseURI + '/Notification/' + id,body);
+  }
+  EmailService(EmailToId,EmailSubject,EmailBody){
+    var body = {
+      emailToId:EmailToId,
+      emailToName:'karim',
+      emailSubject:EmailSubject,
+      emailBody:EmailBody
+    };
+    return this.http.post(this.BaseURI + '/Email',body);
+  }
 }
