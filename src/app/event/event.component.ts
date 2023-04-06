@@ -70,7 +70,7 @@ export class EventComponent implements OnInit {
     private myServiceServices: MyServicesService,
     private userService: UserService,
     private eventService: EventsService,
-    private router:Router) { }
+    private router: Router) { }
 
   searchForm = new FormControl();
   ngOnInit(): void {
@@ -112,12 +112,13 @@ export class EventComponent implements OnInit {
   }
   sum = 0;
 
-  AddServiceChip(idValue, nameValue, prixValue, provider) {
+  AddServiceChip(idValue, nameValue, prixValue, provider, userId) {
     this.servicesList.push({
       id: idValue,
       name: nameValue,
       prix: prixValue,
-      provider: provider
+      provider: provider,
+      userId: userId,
     });
 
     this.sum = this.sum + prixValue;
@@ -156,15 +157,17 @@ export class EventComponent implements OnInit {
   selectedFilters: string[] = [];
 
   filterServices() {
-    this.filteredData = this.MyServices.filter(service => {
-      if (service.provider === 'INTERN') {
-        return (this.INTERN.value && (!this.searchResult || Object.values(service).some(val => String(val).toLowerCase().includes(this.searchResult.toLowerCase()))));
-      } else {
-        return (this.EBAY.value && service.provider === 'EBAY') ||
-          (this.AMAZON.value && service.provider === 'AMAZON');
-      }
-    });
-    this.paginateData();
+    if (this.MyServices) {
+      this.filteredData = this.MyServices.filter(service => {
+        if (service.provider === 'INTERN') {
+          return (this.INTERN.value && (!this.searchResult || Object.values(service).some(val => String(val).toLowerCase().includes(this.searchResult.toLowerCase()))));
+        } else {
+          return (this.EBAY.value && service.provider === 'EBAY') ||
+            (this.AMAZON.value && service.provider === 'AMAZON');
+        }
+      });
+      this.paginateData();
+    }
   }
 
 
@@ -181,7 +184,8 @@ export class EventComponent implements OnInit {
         this.affectationBody.push({
           serviceFk: SelectedServices.id,
           eventFk: this.item,
-          userFk: userId
+          userFk: userId,
+          idProvider: SelectedServices.userId
         })
       }
       else {

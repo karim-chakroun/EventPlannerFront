@@ -37,7 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { EventsComponent } from './events/events.component';
 
-import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { AddEventComponent } from './add-event/add-event.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -51,6 +51,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { EventPageComponent } from './event-page/event-page.component';
 import { CommandsComponent } from './commands/commands.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+import dayGridPlugin from '@fullcalendar/daygrid';
+
 
 @NgModule({
   declarations: [
@@ -103,9 +108,11 @@ import { CommandsComponent } from './commands/commands.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
 
-    ScheduleModule,
+    ScheduleModule,RecurrenceEditorModule,
+    FullCalendarModule,
   ],
   providers: [
+    DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,
     UserService, {
       provide : HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

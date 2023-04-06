@@ -46,14 +46,20 @@
                                             <span class="notify-badge" *ngIf="s.provider=='EBAY'">
                                                 <img src="assets/img/ebay.png" class="card-img-top" alt="...">
                                             </span>
-                                            <img src="assets/img/food.png" class="card-img-top" alt="...">
+                                            <div *ngIf="!s.image">
+                                                <img src="assets/img/food.png" class="card-img-top contentImg" alt="...">
+                                            </div>
+                                            <div *ngIf="s.image">
+                                                <img [src]="s.image" class="card-img-top contentImg" alt="...">
+                                            </div>
+                                            
                                             <div class="card-body">
-                                                <p> {{s.serviceName.split(' ').slice(0, 5).join(' ') | titlecase }}
+                                                <p> {{s.serviceName.split(' ').slice(0, 4).join(' ') | titlecase }}
                                                     ... </p>
                                                 <p><span class="card-text">{{s.description | titlecase}}</span></p>
 
                                                 <a mat-stroked-button color="basic"
-                                                    (click)="AddServiceChip(s.idService,s.serviceName,s.prix,s.provider)">Add
+                                                    (click)="AddServiceChip(s.idService,s.serviceName,s.prix,s.provider,s.userId)">Add
                                                     Service</a>
                                             </div>
                                         </div>

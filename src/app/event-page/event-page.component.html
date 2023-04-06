@@ -5,7 +5,7 @@
     <div *ngIf="event && event.stepsDone">
         <mat-card class="example-card">
             <mat-card-header>
-              <mat-card-title> {{event.eventName}} </mat-card-title>
+              <mat-card-title> {{event.eventName | titlecase}} </mat-card-title>
               <mat-card-subtitle>From {{event.dateDebut | date:"MM/dd/yy HH:mm"}} until {{event.dateFin | date:"MM/dd/yy HH:mm"}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>

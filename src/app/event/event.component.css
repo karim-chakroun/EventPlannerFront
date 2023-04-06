@@ -65,7 +65,15 @@ mat-stepper {
 .card-img-top{
     align-items: right !important;
 }
+.contentImg{
+    height: 12rem !important;
+}
 mat-chip-row{
     margin-right: 3px;
     margin-bottom: 2px;
+}
+.servCard{
+    max-height: 25rem;
+    overflow-y: auto;
+    width: 14.8rem !important;
 }
