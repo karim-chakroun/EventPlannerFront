@@ -1,6 +1,4 @@
-.mat-mdc-form-field {
-    
-}
+.mat-mdc-form-field {}
 
 mat-form-field {
     width: 100%;
@@ -21,7 +19,8 @@ mat-stepper {
 .cover {
     height: 13rem;
 }
-.coverBtn{
+
+.coverBtn {
     width: auto !important;
     margin: 0;
     position: absolute;
@@ -35,45 +34,57 @@ mat-stepper {
     max-height: 60rem;
     overflow-y: auto;
 }
-.servRow{
+
+.servRow {
     margin-top: 2%;
 }
-.exe{
-    margin-top: 10px;
-}
-.adress{
+
+.exe {
     margin-top: 10px;
 }
 
-.search{
+.adress {
+    margin-top: 10px;
+}
+
+.search {
     height: 3.5rem
 }
 
-.mat-stroked-button{
+.mat-stroked-button {
     vertical-align: bottom;
 }
-.card-text{
+
+.card-text {
     font-size: 14px;
     color: gray;
 }
-.notify-badge{
+
+.notify-badge {
     position: absolute;
     align-items: right !important;
     width: 5rem;
 }
 
-.card-img-top{
+.card-img-top {
     align-items: right !important;
 }
-.contentImg{
+
+.contentImg {
     height: 12rem !important;
 }
-mat-chip-row{
+
+mat-chip-row {
     margin-right: 3px;
     margin-bottom: 2px;
 }
-.servCard{
+
+.servCard {
     max-height: 25rem;
     overflow-y: auto;
     width: 14.8rem !important;
+}
+
+.map-container {
+    height: 400px;
 }

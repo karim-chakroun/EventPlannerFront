@@ -1,4 +1,5 @@
 <div class="container">
+    {{item}}test
     <mat-stepper #stepper>
         <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
             <form [formGroup]="firstFormGroup">
@@ -19,12 +20,17 @@
         <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
             <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>Fill out your address</ng-template>
-                <mat-form-field class="adress" appearance="fill">
-                    <mat-label>Address</mat-label>
-                    <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
-                </mat-form-field>
+
+
+                <input type="text" [formControl]="searchMap" placeholder="Search by name">
+                <button (click)="search()">Search</button>
+
+                <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)"
+                    (leafletClick)="mapClicked($event)">
+                </div>
+
                 <div>
-                    <p>Go to a different step to see the error state</p>
+
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
                 </div>
@@ -46,13 +52,17 @@
                                             <span class="notify-badge" *ngIf="s.provider=='EBAY'">
                                                 <img src="assets/img/ebay.png" class="card-img-top" alt="...">
                                             </span>
+                                            <span class="notify-badge" *ngIf="s.provider=='AMAZON'">
+                                                <img src="assets/img/Amazon.png" class="card-img-top" alt="...">
+                                            </span>
                                             <div *ngIf="!s.image">
-                                                <img src="assets/img/food.png" class="card-img-top contentImg" alt="...">
+                                                <img src="assets/img/food.png" class="card-img-top contentImg"
+                                                    alt="...">
                                             </div>
                                             <div *ngIf="s.image">
                                                 <img [src]="s.image" class="card-img-top contentImg" alt="...">
                                             </div>
-                                            
+
                                             <div class="card-body">
                                                 <p> {{s.serviceName.split(' ').slice(0, 4).join(' ') | titlecase }}
                                                     ... </p>
@@ -148,7 +158,7 @@
                     </mat-card>
                     <mat-card class="exe">
                         <mat-card-content>
-                            <p><b>Cost: </b> {{sum | number : '1.2-2'}}$</p>
+                            <p><b>Cost: </b> {{event.cout | number : '1.2-2'}}$</p>
                             <p><b>Services:</b> </p>
 
 
@@ -168,7 +178,7 @@
 
                 </div>
             </div>
-            <p>You are now done.</p>
+            
             <div>
 
                 <button mat-button matStepperPrevious>Back</button>

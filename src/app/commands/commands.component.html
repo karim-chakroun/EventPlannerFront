@@ -36,29 +36,42 @@
                 <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> Event </th>
                 <td mat-cell *matCellDef="let element"> {{element.event.eventName | titlecase}} </td>
             </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="State">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> State </th>
+                <td mat-cell *matCellDef="let element"> {{element.content | titlecase}} </td>
+            </ng-container>
 
-            
+
 
             <!-- Symbol Column -->
 
 
             <ng-container matColumnDef="content">
-                <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> State </th>
+                <th mat-header-cell mat-sort-header *matHeaderCellDef class="fs-6"> Action </th>
                 <td mat-cell *matCellDef="let element">
 
-                    <mat-form-field class="act" appearance="outline">
-                        <mat-label>{{element.content }} </mat-label>
-                        <mat-select>
+                    <div class="btn-group">
+                        <button [disabled]="element.closed" type="button" mat-raised-button color="primary"
+                            class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Action
+                        </button>
+                        <ul class="dropdown-menu">
 
-                            <mat-option (click)="stateInPorgress(element.idNotification,element.user.email)" value="In progress">In progress</mat-option>
-                            <mat-option (click)="stateDone(element.idNotification,element.user.email)" value="Done">Done</mat-option>
-                            <mat-option (click)="stateRejected(element.idNotification,element.user.email)" value="Reject">Reject</mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                            <li><a *ngIf="element.content==null" [routerLink]="" class="dropdown-item">To do</a></li>
+                            <li><a *ngIf="element.content!='Done'" [routerLink]=""
+                                    (click)="stateInPorgress(element.idNotification,element.user.email)"
+                                    class="dropdown-item">In Progress</a></li>
+                            <li><a [routerLink]="" (click)="stateDone(element.idNotification,element.user.email)"
+                                    class="dropdown-item">Done</a></li>
+                            <li><a [routerLink]="" (click)="stateRejected(element.idNotification,element.user.email)"
+                                    class="dropdown-item">Reject</a></li>
+                        </ul>
+                    </div>
                 </td>
             </ng-container>
 
-            
+
 
 
 

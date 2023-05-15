@@ -55,6 +55,12 @@ import { CommandsComponent } from './commands/commands.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
+import { AngularOpenlayersModule } from 'ngx-openlayers';
+import { CommandDetailsComponent } from './command-details/command-details.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
+
 
 
 @NgModule({
@@ -73,7 +79,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
     AddEventComponent,
     EventComponent,
     EventPageComponent,
-    CommandsComponent
+    CommandsComponent,
+    CommandDetailsComponent,
+    EditEventComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -110,6 +119,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 
     ScheduleModule,RecurrenceEditorModule,
     FullCalendarModule,
+    LeafletModule,
+    AngularOpenlayersModule
   ],
   providers: [
     DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,

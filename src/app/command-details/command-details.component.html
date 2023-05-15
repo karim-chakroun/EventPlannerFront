@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{command.service.serviceName|titlecase}}</h1>
+<div mat-dialog-content>
+    <div class="row">
+        <div class="col-md-7">
+            <p>Description: {{command.service.description}}</p>
+            <p>Price: {{command.service.prix}}</p>
+            <p>Date: {{command.dateNotif |date:"MM/dd/yy HH:mm"}}</p>
+
+        </div>
+        <div class="col-md-4">
+            <div class="col-5">
+                <!-- <img *ngIf="n.content!='Rejected' && n.content!=null" src="assets/img/Approved.png" alt="" width="90%"> -->
+                <img *ngIf="command.content=='Rejected'" src="assets/img/Rejected.png" alt="" >
+                <img *ngIf="command.content=='In Porgress'" src="assets/img/inProg.png" alt="" >
+                <img *ngIf="command.content=='To do'" src="assets/img/onHold.png" alt="" >
+                <img *ngIf="command.content=='Done'" src="assets/img/Approved.png" alt="">
+              </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelCommand()" color="accent" align="end">Cancel command</button>
+    <button mat-button mat-dialog-close>Close</button>
+    
+</div>

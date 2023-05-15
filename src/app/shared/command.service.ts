@@ -22,6 +22,13 @@ export class CommandService {
     };
     return this.http.put(this.BaseURI + '/Notification/' + id,body);
   }
+  changeStateAndClose(id,state) {
+    var body = {
+      content:state,
+      closed:true
+    };
+    return this.http.put(this.BaseURI + '/Notification/' + id,body);
+  }
   EmailService(EmailToId,EmailSubject,EmailBody){
     var body = {
       emailToId:EmailToId,
@@ -30,5 +37,9 @@ export class CommandService {
       emailBody:EmailBody
     };
     return this.http.post(this.BaseURI + '/Email',body);
+  }
+
+  DeleteCommand(id) {
+    return this.http.delete(this.BaseURI + '/Notification/' + id);
   }
 }

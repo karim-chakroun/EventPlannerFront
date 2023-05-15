@@ -19,8 +19,8 @@ export class EventsService {
   getUserEvents(userId){
     return this.http.get(this.BaseURI+ '/Event/GetUserEvents?userId='+userId);
   }
-  putEventSteps(eventId){
-    return this.http.put(this.BaseURI+ '/Event/'+eventId,'');
+  putEventSteps(eventId,body){
+    return this.http.put(this.BaseURI+ '/Event/'+eventId,body);
   }
   getEventById(eventId){
     return this.http.get(this.BaseURI+ '/Event/'+eventId);
