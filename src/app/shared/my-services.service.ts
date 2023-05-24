@@ -24,7 +24,7 @@ export class MyServicesService {
 
   });
 
-  AddService() {
+  AddService(imagePath) {
     var body = {
       serviceName: this.formModel.value.serviceName,
       description: this.formModel.value.description,
@@ -32,7 +32,7 @@ export class MyServicesService {
       promotion: this.formModel.value.promotion,
       type: this.formModel.value.type,
       prix:this.formModel.value.prix,
-      image:"test",
+      image:imagePath,
       video:this.formModel.value.video
     };
     return this.http.post(this.BaseURI + '/Services', body);
@@ -55,5 +55,8 @@ export class MyServicesService {
   }
   AffectExternServiceToEvent(formData){
     return this.http.post(this.BaseURI + '/ExternServices', formData);
+  }
+  getStats(userId){
+    return this.http.get(this.BaseURI+ '/Services/stats?userId='+userId);
   }
 }

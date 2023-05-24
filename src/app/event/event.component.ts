@@ -153,6 +153,28 @@ export class EventComponent implements OnInit {
     this.markers.push(marker);
   }
 
+  async searchMapEdit() {
+    this.searchQuery = this.event.adresse;
+    const query = this.searchQuery.trim();
+    if (!query) {
+      return;
+    }
+    const { lat, lng } = await this.getLatLngFromAddress(query);
+    console.log(lat, lng);
+    const data = {
+      position: { lat, lng },
+      draggable: true
+    };
+    const marker = this.generateMarker(data, this.markers.length - 1);
+    // Remove existing markers from the map
+    for (const marker of this.markers) {
+      this.map.removeLayer(marker);
+    }
+    marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
+    this.map.panTo(data.position);
+    this.markers.push(marker);
+  }
+
 
 
 
@@ -208,11 +230,16 @@ export class EventComponent implements OnInit {
 
   searchForm = new FormControl();
   event;
+  sum = 0;
   ngOnInit(): void {
+    
+    
+    
     console.log("item"+this.item)
     this.eventService.getEventById(this.item).subscribe(
       res => {
         this.event = res;
+        this.searchMapEdit();
 
       },
       err => {
@@ -222,6 +249,16 @@ export class EventComponent implements OnInit {
     this.userProfile();
     this.getServices();
     this.INTERN.setValue('true'); //intern
+    if(this.event){
+      this.sum = this.event.cout;
+    }
+    
+      
+        
+      
+      
+    
+    
     //this.paginateData();
   }
 
@@ -231,7 +268,7 @@ export class EventComponent implements OnInit {
 
     if (index >= 0) {
       this.servicesList.splice(index, 1);
-      this.event.cout = this.event.cout - serv.prix;
+      this.sum = this.sum - serv.prix;
     }
   }
 
@@ -255,7 +292,7 @@ export class EventComponent implements OnInit {
       }
     );
   }
-  sum = 0;
+  
 
   AddServiceChip(idValue, nameValue, prixValue, provider, userId) {
     this.servicesList.push({

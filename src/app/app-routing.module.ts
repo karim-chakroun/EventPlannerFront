@@ -10,6 +10,7 @@ import { MyServicesComponent } from './my-services/my-services.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProviderDashboardComponent } from './provider-dashboard/provider-dashboard.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,13 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: HomeComponent }
+    ]
+  },
+  {
+    path: 'providerDashboard',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: ProviderDashboardComponent }
     ]
   },
   {

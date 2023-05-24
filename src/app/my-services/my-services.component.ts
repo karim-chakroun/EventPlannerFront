@@ -43,6 +43,10 @@ export class MyServicesComponent implements OnInit{
     
   }
 
+  public createImgPath = (serverPath: string) => { 
+    return `https://localhost:7164/${serverPath}`; 
+  }
+
   Filterchange(event: Event) {
     const filvalue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filvalue;

@@ -1,9 +1,18 @@
 export class Event {
     type: string;
-    EventName: string;
-    Description: string;
-    DateDebut: Date;
-    DateFin: Date;
-    UserId: number;
+    eventName: string;
+    description: string;
+    dateDebut: Date;
+    dateFin: Date;
+    userId: number;
+    adresse:string;
+    cout:number;
+    notifications: [
+      {
+        idNotification: string,
+        content: string,
+        dateNotif: Date
+      }
+    ]
   }
   

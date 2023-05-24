@@ -60,6 +60,11 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AngularOpenlayersModule } from 'ngx-openlayers';
 import { CommandDetailsComponent } from './command-details/command-details.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { ProviderDashboardComponent } from './provider-dashboard/provider-dashboard.component';
+import { RequesterDashboardComponent } from './requester-dashboard/requester-dashboard.component';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { UploadComponent } from './upload/upload.component';
 
 
 
@@ -82,6 +87,9 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     CommandsComponent,
     CommandDetailsComponent,
     EditEventComponent,
+    ProviderDashboardComponent,
+    RequesterDashboardComponent,
+    UploadComponent,
 
   ],
   imports: [
@@ -120,7 +128,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     ScheduleModule,RecurrenceEditorModule,
     FullCalendarModule,
     LeafletModule,
-    AngularOpenlayersModule
+    AngularOpenlayersModule,
+    NgxChartsModule
   ],
   providers: [
     DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,

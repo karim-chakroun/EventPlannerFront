@@ -42,6 +42,7 @@
                         <input matInput placeholder="Ex. 50%" formControlName="video">
                     </mat-form-field>
                 </div>
+                <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
                 <div class="col-md-4">
                     <mat-checkbox formControlName="avalable" >Available</mat-checkbox>
                 </div>

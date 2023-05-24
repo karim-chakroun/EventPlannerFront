@@ -25,6 +25,7 @@
     "@fullcalendar/bootstrap5": "^6.1.5",
     "@fullcalendar/core": "^6.1.5",
     "@fullcalendar/daygrid": "^6.1.5",
+    "@swimlane/ngx-charts": "^20.1.2",
     "@syncfusion/ej2-angular-schedule": "^20.4.50",
     "angular-osm": "^1.2.2",
     "bootstrap": "^5.2.3",
