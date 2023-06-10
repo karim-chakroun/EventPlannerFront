@@ -200,5 +200,9 @@ editEvent(id) {
   });
 }
 
+public createImgPath = (serverPath: string) => { 
+  return `https://localhost:7164/${serverPath}`; 
+}
+
 
 }

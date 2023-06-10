@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Upload your image</h1>
+<div mat-dialog-content>
+  
+  <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onSubmit()">Save</button>
+    
+  </div>
+</div>

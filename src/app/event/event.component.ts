@@ -392,7 +392,8 @@ export class EventComponent implements OnInit {
   AffectServicesToEvent(userId) {
     var body = {
       adresse: this.secondFormGroup.value.secondCtrl,
-      cout: this.event.cout
+      cout: this.event.cout,
+      image: this.response.dbPath,
     };
     for (let SelectedServices of this.servicesList) {
       if (SelectedServices.provider == 'INTERN') {
@@ -401,7 +402,8 @@ export class EventComponent implements OnInit {
           serviceFk: SelectedServices.id,
           eventFk: this.item,
           userFk: userId,
-          idProvider: SelectedServices.userId
+          idProvider: SelectedServices.userId,
+          
         })
       }
       else {
@@ -422,7 +424,7 @@ export class EventComponent implements OnInit {
     );
     this.eventService.putEventSteps(this.item, body).subscribe(
     );
-    window.location.reload();
+    //window.location.reload();
   }
 
   userDetails;
@@ -438,6 +440,13 @@ export class EventComponent implements OnInit {
 
     );
 
+  }
+
+  //upload image
+  response: { dbPath: '' };
+  uploadFinished = (event) => {
+    this.response = event;
+    console.log("dbpath" + this.response.dbPath)
   }
 
 

@@ -58,6 +58,14 @@ export class UserService {
     return this.http.get(this.BaseURI+ '/UserProfile');
   }
 
+  putUserImage(path){
+    var body = {
+      image:path
+    };
+    return this.http.put(this.BaseURI+ '/UserProfile',body);
+  }
+
+
 
   roleMatch(allowedRoles): boolean{
     var isMatch = false;

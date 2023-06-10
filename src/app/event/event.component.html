@@ -7,9 +7,9 @@
 
                 <h6>Cover photo</h6>
                 <div class="card cover" align="center">
-                    <button mat-stroked-button class="coverBtn">
-                        <mat-icon> insert_photo</mat-icon>
-                        Import a cover photo</button>
+                    
+
+                        <app-upload class="coverBtn" (onUploadFinished)="uploadFinished($event)"></app-upload>
                 </div>
                 <div align="end">
 

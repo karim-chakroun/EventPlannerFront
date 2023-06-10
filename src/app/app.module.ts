@@ -65,6 +65,7 @@ import { RequesterDashboardComponent } from './requester-dashboard/requester-das
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { UploadComponent } from './upload/upload.component';
+import { UploadProfileImgComponent } from './upload-profile-img/upload-profile-img.component';
 
 
 
@@ -90,6 +91,7 @@ import { UploadComponent } from './upload/upload.component';
     ProviderDashboardComponent,
     RequesterDashboardComponent,
     UploadComponent,
+    UploadProfileImgComponent,
 
   ],
   imports: [

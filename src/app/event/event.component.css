@@ -21,13 +21,13 @@ mat-stepper {
 }
 
 .coverBtn {
-    width: auto !important;
+    width: 100% !important;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-10%, -50%);
 }
 
 .scroll {
@@ -87,4 +87,8 @@ mat-chip-row {
 
 .map-container {
     height: 400px;
+}
+
+app-upload{
+    align-items: center !important;
 }
