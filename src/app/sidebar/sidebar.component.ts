@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(public router: Router,
     public service: UserService,) { }
+
+    searchName = new FormControl('');
   ngOnInit(): void {
 
   }
@@ -29,6 +32,10 @@ export class SidebarComponent implements OnInit {
   onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+
+  search(){
+    this.router.navigate(['/search/'+this.searchName.value]);
   }
 
 }

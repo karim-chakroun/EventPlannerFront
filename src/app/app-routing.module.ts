@@ -11,6 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProviderDashboardComponent } from './provider-dashboard/provider-dashboard.component';
+import { SearchComponent } from './search/search.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 
 const routes: Routes = [
 
@@ -66,6 +68,20 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: EventComponent }
+    ]
+  },
+  {
+    path: 'user/:id',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: ProfilesComponent }
+    ]
+  },
+  {
+    path: 'search/:id',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: SearchComponent }
     ]
   },
   {

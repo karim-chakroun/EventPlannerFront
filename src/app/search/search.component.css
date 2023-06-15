@@ -1,0 +1,19 @@
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.rounded-circle:hover {
+    box-shadow: 0 9px 12px 0 rgba(0, 0, 0, 0.10), 0 14px 30px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+.rounded-circle{
+    width: 75px !important;
+    height: 75px !important;;
+}
+.user-card{
+    width: 70%;
+}
+a{
+    margin-left: -60px !important;
+    color: black;
+}

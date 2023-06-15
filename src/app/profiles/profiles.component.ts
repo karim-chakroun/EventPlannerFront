@@ -1,18 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { FeedbackService } from '../shared/feedback.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadProfileImgComponent } from '../upload-profile-img/upload-profile-img.component';
-import { FeedbackService } from '../shared/feedback.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-profiles',
+  templateUrl: './profiles.component.html',
+  styleUrls: ['./profiles.component.css']
 })
-export class ProfileComponent implements OnInit{
+export class ProfilesComponent implements OnInit{
+
   constructor(private router:Router,
     private service:UserService,
+    private ac:ActivatedRoute,
     public feedbackService:FeedbackService,
     private dialog: MatDialog) { }
   userDetails;
@@ -22,30 +24,21 @@ export class ProfileComponent implements OnInit{
   progress: number;
   message: string;
   @Output() public onUploadFinished = new EventEmitter();
+  myParam;
   ngOnInit(): void {
-    this.userProfile();
+    
+
+
+    this.ac.paramMap.subscribe(
+      res=>{
+        this.myParam=(res.get('id')),
+        this.getUserById(this.myParam)
+       });
+       this.userProfile();
+    
   }
 
-  userProfile(){
-    if(localStorage.getItem('token') != null){
-
-      this.service.getUserProfile().subscribe(
-        res =>{
-          this.userDetails = res;
-          for (let u of this.userDetails.feedbacks) {
-            this.getUserById(u.idPoster)
-            
-          }
-          
-        },
-        err =>{
-          console.log(err);
-        }
-  
-      );
-
-    }
-  }
+ 
 
   openDialog(user) {
 
@@ -65,7 +58,45 @@ export class ProfileComponent implements OnInit{
     return `https://localhost:7164/${serverPath}`; 
   }
 
+  PosterList:any=[]
+
   getUserById(id){
+    this.service.getUserById(id).subscribe(
+      res =>{
+        this.userDetails = res;
+        for (let u of this.userDetails.feedbacks) {
+          this.getPosterById(u.idPoster)
+          console.log('poster by id'+u.id)
+          
+        }
+      },
+      err =>{
+        console.log(err);
+      }
+
+    );
+
+  }
+connectedUser;
+
+userProfile(){
+  if(localStorage.getItem('token') != null){
+
+    this.service.getUserProfile().subscribe(
+      res =>{
+        this.connectedUser = res;
+      },
+      err =>{
+        console.log(err);
+      }
+
+    );
+
+  }
+}
+
+
+  getPosterById(id){
     this.service.getUserById(id).subscribe(
       res =>{
         this.posterDetails = res;
@@ -78,12 +109,13 @@ export class ProfileComponent implements OnInit{
 
   }
 
-  addPost(PosterId,ReceiverId){
-    this.feedbackService.addFeedback(PosterId,ReceiverId,this.userDetails.fullName,this.userDetails.image).subscribe(
+  addPost(PosterId,ReceiverId,fullname,image){
+    this.feedbackService.addFeedback(PosterId,ReceiverId,fullname,image).subscribe(
       (res: any) => {
           
           this.feedbackService.formModel.reset();
-          this.userProfile();
+          this.ngOnInit();
+          
           //this.router.navigateByUrl('/Offres');
           //this.toastr.success('New user created!', 'Registration successful.');
       },
@@ -93,7 +125,5 @@ export class ProfileComponent implements OnInit{
     );
 
   }
-
-  
 
 }

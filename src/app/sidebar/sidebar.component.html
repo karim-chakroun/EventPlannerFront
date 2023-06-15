@@ -2,6 +2,12 @@
   <button mat-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
+  
+    
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search" [formControl]="searchName" (keyup.enter)="search()">
+  </mat-form-field>
 
 
 

@@ -58,6 +58,16 @@ export class UserService {
     return this.http.get(this.BaseURI+ '/UserProfile');
   }
 
+  getUserById(idUser){
+    
+    return this.http.get(this.BaseURI+ '/UserProfile/'+idUser);
+  }
+
+  getUserByName(name){
+    return this.http.get(this.BaseURI+ '/UserProfile/GetUsersByUsername?username='+name);
+
+  }
+
   putUserImage(path){
     var body = {
       image:path
