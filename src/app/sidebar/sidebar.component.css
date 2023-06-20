@@ -94,3 +94,10 @@ mat-form-field{
     height: 115% !important;
 }
 
+mat-expansion-panel-header{
+    margin-left: -18px;
+}
+mat-panel-title{
+    font-size: larger;
+}
+

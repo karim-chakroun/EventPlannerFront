@@ -2,8 +2,8 @@
   <button mat-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  
-    
+
+
   <mat-form-field appearance="fill">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Search" [formControl]="searchName" (keyup.enter)="search()">
@@ -17,11 +17,13 @@
 
 <mat-sidenav-container fxLayout="column">
   <mat-sidenav class="mat-elevation-z8" #drawer mode="side" opened>
-    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/providerDashboard']" mat-button class="menu-button">
+    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/providerDashboard']" mat-button
+      class="menu-button">
       <mat-icon>dashboard</mat-icon>
       <span>Requester Dashboard</span>
     </button>
-    <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/providerDashboard']" mat-button class="menu-button">
+    <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/providerDashboard']" mat-button
+      class="menu-button">
       <mat-icon>dashboard</mat-icon>
       <span>Provider Dashboard</span>
     </button>
@@ -45,7 +47,7 @@
     </button>
     <button *ngIf="service.roleMatch(['FOURNISSEUR'])" [routerLink]="['/commands']" mat-button class="menu-button">
       <mat-icon>border_color</mat-icon>
-      <span>Commands</span>
+      <span>Orders</span>
     </button>
     <button *ngIf="service.roleMatch(['ADMINISTRATEUR'])" [routerLink]="['/Personnels']" mat-button class="menu-button">
       <mat-icon>group icon</mat-icon>
@@ -55,14 +57,26 @@
       <mat-icon>group icon</mat-icon>
       <span>Recruteurs</span>
     </button>
-    <button [routerLink]="['/Candidatures']" mat-button class="menu-button">
-      <mat-icon>bar_chart</mat-icon>
-      <span>Stats</span>
-    </button>
-    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/myevents']" mat-button class="menu-button">
-      <mat-icon>event</mat-icon>
-      <span>Events</span>
-    </button>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>event</mat-icon>
+            <span>Events</span>
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/globalEvents']" mat-button class="menu-button">
+          <mat-icon>event_seat</mat-icon>
+          <span>Current events</span>
+        </button>
+        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/myevents']" mat-button class="menu-button">
+          <mat-icon>event_note</mat-icon>
+          <span>My events</span>
+        </button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
     <button [routerLink]="['/Candidatures']" mat-button class="menu-button">
       <mat-icon>message</mat-icon>
       <span>Contact us</span>
@@ -71,7 +85,7 @@
       <mat-icon>contact_support</mat-icon>
       <span>About us</span>
     </button>
-    
+
 
     <mat-divider></mat-divider>
 

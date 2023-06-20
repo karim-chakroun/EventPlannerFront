@@ -28,7 +28,7 @@
     "@swimlane/ngx-charts": "^20.1.2",
     "@syncfusion/ej2-angular-schedule": "^20.4.50",
     "angular-osm": "^1.2.2",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.10.3",
     "leaflet": "^1.9.3",
     "leaflet-control-geocoder": "^2.4.0",

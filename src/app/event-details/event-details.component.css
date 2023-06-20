@@ -1,0 +1,42 @@
+.example-card {
+    margin-top: 10px;
+}
+
+.Services-card {
+    max-height: 28rem;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.Extern-ervices-card {
+    max-height: 28rem;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    height: 20rem;
+}
+.map{
+    height: 100%;
+}
+mat-card-footer{
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.eventDescription{
+
+    height: 25rem;
+}
+.mapCard{
+    height: 25rem;
+}
+
+mat-icon{
+    margin-top: 5px !important;
+}
+
+.coverImg{
+    height: 28rem;
+}

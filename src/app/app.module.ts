@@ -41,6 +41,8 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
 import { AddEventComponent } from './add-event/add-event.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
@@ -68,6 +70,10 @@ import { UploadComponent } from './upload/upload.component';
 import { UploadProfileImgComponent } from './upload-profile-img/upload-profile-img.component';
 import { SearchComponent } from './search/search.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { AddCommandComponent } from './add-command/add-command.component';
+import { GlobalEventsComponent } from './global-events/global-events.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
+
 
 
 
@@ -96,6 +102,9 @@ import { ProfilesComponent } from './profiles/profiles.component';
     UploadProfileImgComponent,
     SearchComponent,
     ProfilesComponent,
+    AddCommandComponent,
+    GlobalEventsComponent,
+    EventDetailsComponent,
 
   ],
   imports: [
@@ -130,6 +139,8 @@ import { ProfilesComponent } from './profiles/profiles.component';
     MatListModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatBadgeModule,
+    MatExpansionModule,
 
     ScheduleModule,RecurrenceEditorModule,
     FullCalendarModule,

@@ -58,6 +58,7 @@
             <h1 align="center">Our latest services</h1>
             <div class="row" >
                 <div class="col-lg-4" *ngFor="let s of MyServices">
+                   
                     <img src="assets/img/food.png" alt="" class="bd-placeholder-img rounded-circle" width="140" height="140"
                      role="img" aria-label="Placeholder: 140x140"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -65,7 +66,7 @@
 
                     <h2>{{s.serviceName | titlecase}}</h2>
                     <p>{{s.description | titlecase}}.</p>
-                    <p><a class="btn btn-secondary" href="#">View details </a></p>
+                    <p><a mat-raised-button  matBadgeColor="accent" href="#">View details </a></p>
                 </div><!-- /.col-lg-4 -->
                 
             </div><!-- /.row -->

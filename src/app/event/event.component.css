@@ -92,3 +92,7 @@ mat-chip-row {
 app-upload{
     align-items: center !important;
 }
+
+.order{
+    width: 40% !important;
+}

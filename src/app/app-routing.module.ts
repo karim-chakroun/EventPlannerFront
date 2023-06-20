@@ -13,6 +13,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProviderDashboardComponent } from './provider-dashboard/provider-dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { GlobalEventsComponent } from './global-events/global-events.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 const routes: Routes = [
 
@@ -89,6 +91,20 @@ const routes: Routes = [
     component: SidebarComponent,
     children: [
       { path: '', component: EventPageComponent }
+    ]
+  },
+  {
+    path: 'eventDetails/:id',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: EventDetailsComponent }
+    ]
+  },
+  {
+    path: 'globalEvents',
+    component: SidebarComponent,
+    children: [
+      { path: '', component: GlobalEventsComponent }
     ]
   },
 ];

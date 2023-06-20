@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card>
+                <img class="coverImg" [src]="createImgPath(event.image)" alt="">
+                <mat-card-actions>
+                    <a mat-raised-button>Participate</a>
+
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+        <div class="col-md-7">
+            <mat-card class="example-card eventDescription">
+                <mat-card-header>
+                    <mat-card-title> Details </mat-card-title>
+                    <mat-card-subtitle> <mat-icon>date_range</mat-icon> From {{event.dateDebut | date:"MM/dd/yy HH:mm"}}
+                        until
+                        {{event.dateFin | date:"MM/dd/yy HH:mm"}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><mat-icon>title</mat-icon> {{event.eventName | titlecase}}</p>
+                    <p><mat-icon>location_on</mat-icon> {{event.adresse | titlecase}}</p>
+                    <p><mat-icon>description</mat-icon> {{event.description | titlecase}}</p>
+                    <h6> <mat-icon>people</mat-icon> Participants</h6>
+
+                    <p></p>
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+        <div class="col-md-5">
+            <mat-card class="example-card mapCard">
+
+                <div class="map-container" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
+                </div>
+
+                <mat-card-footer>
+                    <h6> {{event.adresse | titlecase}} </h6>
+                    <mat-card-subtitle>From {{event.dateDebut | date:"MM/dd/yy HH:mm"}} until {{event.dateFin |
+                        date:"MM/dd/yy HH:mm"}}</mat-card-subtitle>
+                </mat-card-footer>
+
+
+            </mat-card>
+        </div>
+
+
+    </div>
+</div>
+<app-footer></app-footer>

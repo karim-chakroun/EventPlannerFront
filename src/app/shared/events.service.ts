@@ -25,4 +25,7 @@ export class EventsService {
   getEventById(eventId){
     return this.http.get(this.BaseURI+ '/Event/'+eventId);
   }
+  getAllEvents(){
+    return this.http.get(this.BaseURI+ '/Event');
+  }
 }

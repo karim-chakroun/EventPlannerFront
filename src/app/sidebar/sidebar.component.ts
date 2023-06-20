@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(public router: Router,
     public service: UserService,) { }
+    panelOpenState = false;
 
     searchName = new FormControl('');
   ngOnInit(): void {

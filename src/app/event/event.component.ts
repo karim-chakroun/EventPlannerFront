@@ -28,7 +28,7 @@ export class EventComponent implements OnInit {
   @Input() item = '';
 
 
-
+  orderNumber = new FormControl('');
 
   //Map
 
@@ -268,7 +268,8 @@ export class EventComponent implements OnInit {
 
     if (index >= 0) {
       this.servicesList.splice(index, 1);
-      this.sum = this.sum - serv.prix;
+      //this.sum = this.sum - serv.prix;
+      this.event.cout = this.event.cout - serv.prix*serv.quantity;
     }
   }
 
@@ -293,17 +294,39 @@ export class EventComponent implements OnInit {
     );
   }
   
+  quantity;
 
   AddServiceChip(idValue, nameValue, prixValue, provider, userId) {
+    this.quantity=this.orderNumber.value;
     this.servicesList.push({
       id: idValue,
       name: nameValue,
       prix: prixValue,
       provider: provider,
       userId: userId,
+      quantity:this.quantity
     });
+    
+    if (this.quantity>=1) {
+      console.log('quantity'+this.quantity)
+    this.event.cout = this.event.cout + prixValue*this.quantity ;
 
-    this.event.cout = this.event.cout + prixValue;
+    const modelDiv = document.getElementById('myModal');
+    if (modelDiv!=null) {
+      modelDiv.style.display = 'none';
+      
+    }
+      
+    }else{
+      const modelDiv = document.getElementById('myModal');
+    if (modelDiv!=null) {
+      modelDiv.style.display = 'none';
+      
+    }
+
+    }
+
+    
   }
 
   shuffleArray<T>(array: T[]) {
@@ -402,6 +425,7 @@ export class EventComponent implements OnInit {
           serviceFk: SelectedServices.id,
           eventFk: this.item,
           userFk: userId,
+          quantity: SelectedServices.quantity,
           idProvider: SelectedServices.userId,
           
         })
@@ -410,6 +434,7 @@ export class EventComponent implements OnInit {
         this.ExternAffectationBody.push({
           serviceName: SelectedServices.name,
           lien: 'www.ebay.com',
+          quantity: SelectedServices.quantity,
           provider: SelectedServices.provider,
           eventFk: this.item
         })
@@ -449,6 +474,27 @@ export class EventComponent implements OnInit {
     console.log("dbpath" + this.response.dbPath)
   }
 
+selectedService;
+  openModal(s){
+    const modelDiv = document.getElementById('myModal');
+    if (modelDiv!=null) {
+      modelDiv.style.display = 'block';
+      this.selectedService=s;
+      console.log
+      
+    }
+  }
+  closeModal(){
+    const modelDiv = document.getElementById('myModal');
+    if (modelDiv!=null) {
+      modelDiv.style.display = 'none';
+      
+    }
+  }
+
+  public createImgPath = (serverPath: string) => { 
+    return `https://localhost:7164/${serverPath}`; 
+  }
 
 
 }
