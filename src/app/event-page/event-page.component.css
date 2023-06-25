@@ -40,3 +40,6 @@ mat-icon{
 .coverImg{
     height: 28rem;
 }
+.container{
+    background: #fafafa;
+}

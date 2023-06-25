@@ -1,5 +1,5 @@
 a {
-  color: #3f51b5;
+  color: #4b49ac;
 }
 
 .fc-event-title {
@@ -9,6 +9,7 @@ a {
 
 .container {
   margin-top: 20px;
+  background: #fafafa;
   
 
 }
@@ -27,6 +28,7 @@ body {
 
 mat-card {
   margin-top: 10px;
+  background: white !important;
 }
 button{
   margin-top: 10px;
@@ -35,4 +37,19 @@ button{
 .scroll {
   max-height: 32rem;
   overflow-y: auto;
+}
+button{
+  background: #4b49ac !important ;
+}
+
+.e-schedule .e-month-view .e-appointment ::ng-deep {
+  background: #b53f3f !important;
+  border: 1px solid #b53f3f;
+  border-radius: 2px;
+  color: #b53f3f;
+  cursor: default;
+  display: flex;
+  height: 22px;
+  overflow: hidden;
+  position: absolute;
 }

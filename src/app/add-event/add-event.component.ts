@@ -72,7 +72,6 @@ export class AddEventComponent implements OnInit {
         err =>{
           console.log(err);
         }
-  
       );
 
     }

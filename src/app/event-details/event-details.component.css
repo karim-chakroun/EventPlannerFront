@@ -13,6 +13,9 @@
     overflow-y: auto;
     margin-bottom: 10px;
 }
+.container{
+    background: #fafafa;
+}
 
 .map-container {
     height: 20rem;
@@ -39,4 +42,14 @@ mat-icon{
 
 .coverImg{
     height: 28rem;
+}
+
+.rounded-circle:hover {
+    box-shadow: 0 9px 12px 0 rgba(0, 0, 0, 0.10), 0 14px 30px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+.rounded-circle{
+    width: 40px !important;
+    height: 40px !important;;
 }

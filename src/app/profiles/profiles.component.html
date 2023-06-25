@@ -80,7 +80,7 @@
                         </span>
                         <div class="comment-area-btn">
                             <div class="float-end">
-                                <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Post</button>
+                                <button mat-raised-button color="primary" type="submit" class="btn-sm  waves-effect waves-light">Post</button>
                             </div>
                             <div>
                                 <a href="#" class="btn btn-sm btn-light text-black-50"><i class="far fa-user"></i></a>
@@ -94,7 +94,7 @@
 
                     <!-- Story Box-->
                     <div class="border border-light p-2 mb-3">
-                        <div class="d-flex align-items-start" *ngFor="let u of userDetails.feedbacks">
+                        <div class="d-flex align-items-start feedback" *ngFor="let u of userDetails.feedbacks">
                             <img class="me-2 avatar-sm rounded-circle" [src]="createImgPath(u.image)" alt="Generic placeholder image">
                             <div class="w-100">
                                 <h5 class="">{{u.fullName|titlecase}} <small class="text-muted"> {{u.datePost| date:"MM/dd/yy HH:mm"}}</small></h5>

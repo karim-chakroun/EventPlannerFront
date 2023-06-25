@@ -42,14 +42,14 @@
           </div>
           <label id="example-radio-group-label">Pick your role</label>
           <mat-radio-group aria-label="Select an option" formControlName="Role">
-            <mat-radio-button value="DEMANDEUR">Service requester</mat-radio-button>
-            <mat-radio-button value="FOURNISSEUR">Service provider</mat-radio-button>
+            <mat-radio-button color="primary" value="DEMANDEUR">Service requester</mat-radio-button>
+            <mat-radio-button color="primary" value="FOURNISSEUR">Service provider</mat-radio-button>
           </mat-radio-group>
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
             <br>
-            <button mat-raised-button color="accent" type="submit" class="w-100"
+            <button mat-raised-button color="primary" type="submit" class="w-100"
               [disabled]="!service.formModel.valid">Sign Up</button>
           </div>
         </div>

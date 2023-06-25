@@ -31,7 +31,7 @@ export class EventsComponent implements OnInit {
   myData: any[] = [{
     Subject: "testing",
     StartTime: new Date(2019, 0, 17, 4, 0),
-    EndTime: new Date(2019, 0, 17, 6, 0)
+    EndTime: new Date(2019, 0, 17, 6, 0),
   }];
   public eventObject: EventSettingsModel = {
     dataSource: this.myData

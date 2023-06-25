@@ -26,8 +26,8 @@ export class ProviderDashboardComponent implements OnInit{
 
   legendPosition: string = 'below';
 
-  colorScheme = {
-    domain: ['#704FC4', '#4B852C', '#B67A3D', '#5B6FC8', '#25706F']
+  colorScheme:any = {
+    domain: ['#4B49AC', '#98BDFF', '#7DA0FA', '#7978E9', '#F3797E']
   };
 
   ngOnInit(): void {

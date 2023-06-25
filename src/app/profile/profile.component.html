@@ -71,30 +71,15 @@
         </div> <!-- end col-->
 
         <div class="col-xl-7">
-            <div class="card">
-                <div class="card-body">
+            <div class="card" >
+                <div class="card-body" *ngIf="userDetails.feedbacks.length>0">
                     <!-- comment box -->
-                    <form [formGroup]="feedbackService.formModel" autocomplete="off" (submit)="addPost(posterDetails.id,userDetails.id)" class="comment-area-box mb-3">
-                        <span class="input-icon">
-                            <textarea rows="3" formControlName="Description" class="form-control" placeholder="Write something..."></textarea>
-                        </span>
-                        <div class="comment-area-btn">
-                            <div class="float-end">
-                                <button type="submit" class="btn btn-sm btn-dark waves-effect waves-light">Post</button>
-                            </div>
-                            <div>
-                                <a href="#" class="btn btn-sm btn-light text-black-50"><i class="far fa-user"></i></a>
-                                <a href="#" class="btn btn-sm btn-light text-black-50"><i class="fa fa-map-marker-alt"></i></a>
-                                <a href="#" class="btn btn-sm btn-light text-black-50"><i class="fa fa-camera"></i></a>
-                                <a href="#" class="btn btn-sm btn-light text-black-50"><i class="far fa-smile"></i></a>
-                            </div>
-                        </div>
-                    </form>
+                    <h5 >Feedbacks</h5>
                     <!-- end comment box -->
 
                     <!-- Story Box-->
                     <div class="border border-light p-2 mb-3">
-                        <div class="d-flex align-items-start" *ngFor="let u of userDetails.feedbacks">
+                        <div class="d-flex align-items-start feedback" *ngFor="let u of userDetails.feedbacks">
                             <img class="me-2 avatar-sm rounded-circle" [src]="createImgPath(posterDetails.image)" alt="Generic placeholder image">
                             <div class="w-100">
                                 <h5 class="">{{posterDetails.fullName}} <small class="text-muted"> {{u.datePost| date:"MM/dd/yy HH:mm"}}</small></h5>

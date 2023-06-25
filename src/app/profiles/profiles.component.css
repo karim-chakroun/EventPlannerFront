@@ -7,7 +7,12 @@ body {
     box-shadow: 0 0 2px 0 rgb(0 0 0 / 10%);
     margin-bottom: 24px;
 }
-
+.btn-sm{
+    height: 2rem;
+}
+.feedback{
+    margin-top: 10px;
+}
 .card {
     position: relative;
     display: flex;

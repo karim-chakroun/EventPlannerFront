@@ -28,4 +28,11 @@ export class EventsService {
   getAllEvents(){
     return this.http.get(this.BaseURI+ '/Event');
   }
+  AddParticipation(formData){
+    return this.http.post(this.BaseURI + '/Participation', formData);
+  }
+
+  deleteParticipation(Id){
+    return this.http.delete(this.BaseURI+ '/Participation/'+Id);
+  }
 }

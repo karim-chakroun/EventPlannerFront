@@ -449,7 +449,7 @@ export class EventComponent implements OnInit {
     );
     this.eventService.putEventSteps(this.item, body).subscribe(
     );
-    //window.location.reload();
+    window.location.reload();
   }
 
   userDetails;

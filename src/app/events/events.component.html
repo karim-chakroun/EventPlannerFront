@@ -1,9 +1,9 @@
 <div class="container">
-    <button mat-raised-button color="basic" (click)="openDialog()">Create an event</button>
+    <button mat-raised-button color="primary" (click)="openDialog()">Create an event</button>
     <div class="row">
         <div class="col-md-8">
             <mat-card>
-                <ejs-schedule height="35rem" [eventSettings]="eventObject" [selectedDate]="setDate"
+                <ejs-schedule class="calenderTest" height="35rem" [eventSettings]="eventObject" [selectedDate]="setDate"
                     [currentView]="setView"></ejs-schedule>
             </mat-card>
 
@@ -38,3 +38,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

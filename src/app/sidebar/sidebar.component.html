@@ -2,17 +2,11 @@
   <button mat-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-
-
-  <mat-form-field appearance="fill">
+  <h4><b> FIN<span class="planner">PLANNER</span> </b></h4>
+  <mat-form-field appearance="fill" class="ms-auto">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Search" [formControl]="searchName" (keyup.enter)="search()">
   </mat-form-field>
-
-
-
-
-
 </mat-toolbar>
 
 <mat-sidenav-container fxLayout="column">
@@ -57,7 +51,7 @@
       <mat-icon>group icon</mat-icon>
       <span>Recruteurs</span>
     </button>
-    <mat-accordion>
+    <mat-accordion *ngIf="service.roleMatch(['DEMANDEUR'])">
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -66,7 +60,8 @@
           </mat-panel-title>
 
         </mat-expansion-panel-header>
-        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/globalEvents']" mat-button class="menu-button">
+        <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/globalEvents']" mat-button
+          class="menu-button">
           <mat-icon>event_seat</mat-icon>
           <span>Current events</span>
         </button>

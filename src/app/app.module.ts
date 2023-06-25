@@ -73,6 +73,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { AddCommandComponent } from './add-command/add-command.component';
 import { GlobalEventsComponent } from './global-events/global-events.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -105,6 +106,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     AddCommandComponent,
     GlobalEventsComponent,
     EventDetailsComponent,
+    ChatComponent,
 
   ],
   imports: [

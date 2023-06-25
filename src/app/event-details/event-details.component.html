@@ -4,7 +4,14 @@
             <mat-card>
                 <img class="coverImg" [src]="createImgPath(event.image)" alt="">
                 <mat-card-actions>
-                    <a mat-raised-button>Participate</a>
+                   
+                    
+                    <div *ngIf="participated==true">
+                        <a mat-raised-button (click)="deleteParticipation()">Cancel</a>
+                    </div>
+                    <div *ngIf="participated==false">
+                        <a mat-raised-button (click)="addParticipation()">Participate</a>
+                    </div>
 
                 </mat-card-actions>
 
@@ -23,9 +30,12 @@
                     <p><mat-icon>title</mat-icon> {{event.eventName | titlecase}}</p>
                     <p><mat-icon>location_on</mat-icon> {{event.adresse | titlecase}}</p>
                     <p><mat-icon>description</mat-icon> {{event.description | titlecase}}</p>
-                    <h6> <mat-icon>people</mat-icon> Participants</h6>
+                    <h6> <mat-icon>people</mat-icon> Participants : {{event.participantNumber}} </h6>
 
-                    <p></p>
+                    <span *ngFor="let p of event.participation">
+                        <img class="me-2 avatar-sm rounded-circle" [src]="createImgPath(p.image)" alt="Generic placeholder image">
+                        
+                    </span>
                 </mat-card-content>
 
             </mat-card>

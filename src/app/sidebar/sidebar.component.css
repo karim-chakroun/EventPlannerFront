@@ -5,7 +5,7 @@
 }
 
 mat-sidenav {
-    margin: 16px;
+ 
     width: 256px;
     border-right: none;
     background: #ffffff;
@@ -82,16 +82,19 @@ mat-icon{
     color: black;
 }
 .mat-toolbar.mat-primary{
-    background:#FF4080;
+  
+    background: #ffffff;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,.03), 0 0.9375rem 1.40625rem rgba(4,9,20,.03), 0 0.25rem 0.53125rem rgba(4,9,20,.05), 0 0.125rem 0.1875rem rgba(4,9,20,.03);
+    z-index: 5;
 }
-mat-toolbar {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2) !important;
-    
-}
+
 
 mat-form-field{
     margin-top: 20px !important;
     height: 115% !important;
+    margin-left: 80px;
 }
 
 mat-expansion-panel-header{
@@ -100,4 +103,11 @@ mat-expansion-panel-header{
 mat-panel-title{
     font-size: larger;
 }
+h4{
+    color: #4B49AC;
+}
+.planner{
+    color:#98BDFF ;
+}
+
 
