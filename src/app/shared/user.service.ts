@@ -15,6 +15,9 @@ export class UserService {
     UserName: ['', Validators.required],
     Email: ['', Validators.email],
     FullName: [''],
+    Adresse:[''],
+    AboutMe:[''],
+    Birthday:[''],
     PhoneNumber: [''],
     Role:[''],
     Passwords: this.fb.group({
@@ -88,5 +91,26 @@ export class UserService {
       }
     });
     return isMatch;
+  }
+
+  EditCandidat() {
+    var body = {
+      
+
+      userName: this.formModel.value.UserName,
+      fullName: this.formModel.value.FullName,
+      adresse: this.formModel.value.Adresse,
+      aboutMe: this.formModel.value.AboutMe,
+      birthday: this.formModel.value.Birthday,
+      
+      email : this.formModel.value.Email,
+
+      phoneNumber : this.formModel.value.PhoneNumber,
+ 
+      
+
+
+    };
+    return this.http.put(this.BaseURI + '/UserProfile/EditUser', body);
   }
 }

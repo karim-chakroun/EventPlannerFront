@@ -24,7 +24,7 @@ export class MyServicesService {
 
   });
 
-  AddService(imagePath) {
+  AddService(imagePath,userId) {
     var body = {
       serviceName: this.formModel.value.serviceName,
       description: this.formModel.value.description,
@@ -33,6 +33,7 @@ export class MyServicesService {
       type: this.formModel.value.type,
       prix:this.formModel.value.prix,
       image:imagePath,
+      UserId:userId,
       video:this.formModel.value.video
     };
     return this.http.post(this.BaseURI + '/Services', body);
@@ -40,6 +41,9 @@ export class MyServicesService {
 
   getServices(){
     return this.http.get(this.BaseURI+ '/Services');
+  }
+  getUserServices(userId){
+    return this.http.get(this.BaseURI+ '/Services/GetUserServices?userId='+userId);
   }
   getEbayServices(search){
     return this.http.get(this.BaseURI+ '/Services/Ebay?search='+search);
@@ -58,5 +62,8 @@ export class MyServicesService {
   }
   getStats(userId){
     return this.http.get(this.BaseURI+ '/Services/stats?userId='+userId);
+  }
+  deleteService(Id){
+    return this.http.delete(this.BaseURI+ '/Services/'+Id);
   }
 }

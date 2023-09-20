@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyServicesService } from '../shared/my-services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { MyServicesService } from '../shared/my-services.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private myServiceServices:MyServicesService){
+  constructor(private myServiceServices:MyServicesService,
+    private router:Router){
 
   }
 
@@ -27,6 +29,10 @@ export class HomeComponent implements OnInit {
     );
   }
   ngOnInit(): void {
+    if(localStorage.getItem('token') != null){
+
+      this.router.navigateByUrl('/dashboard');
+    }
     this.getLatestServices();
   }
 

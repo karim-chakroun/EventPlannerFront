@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     (function (d, m) {
-      var kommunicateSettings = { "appId": "2333b4a2c65a3405b55fbc1d31376029d", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+      var kommunicateSettings = { "appId": "1e29a49d06824f8512e5c31f0f547379d", "popupWidget": true, "automaticChatOpenOnNavigation": true };
       var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
       s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
       var h = document.getElementsByTagName("head")[0]; h.appendChild(s);

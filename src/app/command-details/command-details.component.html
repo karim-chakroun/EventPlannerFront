@@ -4,7 +4,7 @@
         <div class="col-md-7">
             <p>Description: {{command.service.description}}</p>
             <p>Price: {{command.service.prix}}</p>
-            <p>Date: {{command.dateNotif |date:"MM/dd/yy HH:mm"}}</p>
+            <p>Date: {{command.dateNotif |date:"dd/MM/yyyy"}}</p>
 
         </div>
         <div class="col-md-4">
@@ -23,7 +23,7 @@
 
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancelCommand()" color="accent" align="end">Cancel command</button>
+    <button mat-button (click)="cancelCommand()" color="accent" align="end">Cancel order</button>
     <button mat-button mat-dialog-close>Close</button>
     
 </div>

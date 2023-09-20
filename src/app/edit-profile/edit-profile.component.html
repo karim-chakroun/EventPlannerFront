@@ -1,0 +1,83 @@
+
+    <div class="container">
+        <div class="titel-container">
+            <h3>Edit profile</h3>
+        </div>
+
+        <div class="forms-container row" *ngIf="userDetails">
+
+            <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>About me</mat-label>
+                            <textarea matInput placeholder="About me" [(ngModel)]="userDetails.aboutMe" class="form-control"
+                            formControlName="AboutMe"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Your username" [(ngModel)]="userDetails.userName" class="form-control"
+                            formControlName="UserName">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>FullName</mat-label>
+                            <input matInput placeholder="Your FullName" [(ngModel)]="userDetails.fullName" class="form-control"
+                            formControlName="FullName" >
+                        </mat-form-field>
+                    </div>
+                    
+
+                    <div class="col-md-7">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput placeholder="Your Email" [(ngModel)]="userDetails.email" class="form-control"
+                            formControlName="Email">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Birthday</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="Birthday" [(ngModel)]="userDetails.birthday">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>PhoneNumber</mat-label>
+                            <input matInput placeholder="Your PhoneNumber" [(ngModel)]="userDetails.phoneNumber" class="form-control"
+                            formControlName="PhoneNumber">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Address</mat-label>
+                            <input matInput placeholder="Your PhoneNumber" [(ngModel)]="userDetails.adresse" class="form-control"
+                            formControlName="Adresse">
+                        </mat-form-field>
+                    </div>
+                    
+                    
+                   
+                </div>
+                <div class="form-row">
+                    <div mat-dialog-actions align="center">
+
+                        <button mat-raised-button color="primary" type="submit">Save Changes</button>
+                        <button mat-raised-button mat-dialog-close>Cancel</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </div>
+
+    </div>
+

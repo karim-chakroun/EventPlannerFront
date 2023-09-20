@@ -4,6 +4,7 @@ import { UserService } from '../shared/user.service';
 import { FeedbackService } from '../shared/feedback.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadProfileImgComponent } from '../upload-profile-img/upload-profile-img.component';
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
   selector: 'app-profiles',
@@ -15,6 +16,7 @@ export class ProfilesComponent implements OnInit{
   constructor(private router:Router,
     private service:UserService,
     private ac:ActivatedRoute,
+    private messageService:MessagesService,
     public feedbackService:FeedbackService,
     private dialog: MatDialog) { }
   userDetails;
@@ -124,6 +126,26 @@ userProfile(){
           }
     );
 
+  }
+  conversation;
+
+  addConversation(){
+    var body = {
+      senderId: this.connectedUser.id,
+      senderName: this.connectedUser.fullName,
+      receiverId:this.userDetails.id,
+      receiverName:this.userDetails.fullName
+
+   
+      
+    };
+    this.messageService.AddConversation(body,this.userDetails.id).subscribe(
+      res =>{
+        this.conversation=res
+        this.router.navigateByUrl('messages/'+this.conversation.messageId)
+      
+      }
+    )
   }
 
 }

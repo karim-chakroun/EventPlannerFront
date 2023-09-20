@@ -84,12 +84,12 @@ export class CommandsComponent implements OnInit {
   }
 
   stateRejected(id, sender) {
-    const confirmation = confirm("Are you sure to reject this command? ");
+    const confirmation = confirm("Are you sure to reject this order? ");
     if (confirmation) {
       // rest of your code
       this.service.changeStateAndClose(id, 'Rejected').subscribe(
         res => {
-          this.service.EmailService(sender, 'Rejected', 'we are sorry, your command is rejected.').subscribe();
+          this.service.EmailService(sender, 'Rejected', 'we are sorry, your order is rejected.').subscribe();
           this.getUserCommands();
         },
         err => {
@@ -101,11 +101,11 @@ export class CommandsComponent implements OnInit {
 
   }
   stateInPorgress(id, sender) {
-    const confirmation = confirm("Are you sure to reject this command? ");
+    const confirmation = confirm("Confirm state in progress? ");
     if (confirmation) {
       this.service.changeState(id, 'In porgress').subscribe(
         res => {
-          this.service.EmailService(sender, 'In porgress', 'Your command is in progress').subscribe();
+          this.service.EmailService(sender, 'In porgress', 'Your order is in progress').subscribe();
           this.getUserCommands();
         },
         err => {
@@ -116,11 +116,11 @@ export class CommandsComponent implements OnInit {
 
   }
   stateDone(id, sender) {
-    const confirmation = confirm("Are you sure to reject this command? ");
+    const confirmation = confirm("Confirm this order? ");
     if (confirmation) {
       this.service.changeStateAndClose(id, 'Done').subscribe(
         res => {
-          this.service.EmailService(sender, 'Command ready', 'Your command is in ready').subscribe();
+          this.service.EmailService(sender, 'Order ready', 'Your order is in ready').subscribe();
           this.getUserCommands();
         },
         err => {

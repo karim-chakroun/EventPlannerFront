@@ -274,10 +274,10 @@ export class EventComponent implements OnInit {
   }
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    firstCtrl: [''],
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    secondCtrl: [''],
   });
   MyServices;
   getServices() {
@@ -427,6 +427,7 @@ export class EventComponent implements OnInit {
           userFk: userId,
           quantity: SelectedServices.quantity,
           idProvider: SelectedServices.userId,
+          dateNotif: new Date(),
           
         })
       }

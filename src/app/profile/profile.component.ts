@@ -4,6 +4,7 @@ import { UserService } from '../shared/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadProfileImgComponent } from '../upload-profile-img/upload-profile-img.component';
 import { FeedbackService } from '../shared/feedback.service';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -92,6 +93,20 @@ export class ProfileComponent implements OnInit{
           }
     );
 
+  }
+
+  openEdit(user) {
+
+    const dialogRef =  this.dialog.open(EditProfileComponent, {
+      //width: '50%',
+      height:'75%',
+      
+      data: { user: user}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      
+    });
   }
 
   

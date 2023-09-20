@@ -74,6 +74,9 @@ import { AddCommandComponent } from './add-command/add-command.component';
 import { GlobalEventsComponent } from './global-events/global-events.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { ChatComponent } from './chat/chat.component';
+import { MessagesComponent } from './messages/messages.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -107,6 +110,8 @@ import { ChatComponent } from './chat/chat.component';
     GlobalEventsComponent,
     EventDetailsComponent,
     ChatComponent,
+    MessagesComponent,
+    EditProfileComponent,
 
   ],
   imports: [
@@ -148,7 +153,8 @@ import { ChatComponent } from './chat/chat.component';
     FullCalendarModule,
     LeafletModule,
     AngularOpenlayersModule,
-    NgxChartsModule
+    NgxChartsModule,
+    IonicModule.forRoot()
   ],
   providers: [
     DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService,

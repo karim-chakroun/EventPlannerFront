@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Event Planner</a>
+    <a class="navbar-brand" href="#"><h5><b> FIN<span class="planner">PLANNER</span> </b></h5></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
       aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,24 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/accueil">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/profile">Profile</a>
+          <a class="nav-link active" aria-current="page" routerLink="/global-Events">Events</a>
         </li>
-        <li class="nav-item dropdown s">
-          <a class="nav-link dropdown-toggle s" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Services
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Services</a></li>
-            <li><a class="dropdown-item" href="#">My services</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Add new services</a></li>
-          </ul>
-        </li>
+    
+        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">About us</a>
         </li>
@@ -35,9 +24,10 @@
       </ul>
 
 
-      <button mat-stroked-button color="primary" (click)="onLogout()" type="submit">Disconnect</button>
+      <button mat-stroked-button color="primary" routerLink="/login" type="submit">Login</button>
 
     </div>
   </div>
 </nav>
 <br>
+<router-outlet></router-outlet>

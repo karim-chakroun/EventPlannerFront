@@ -1,1 +1,13 @@
-<p>chat works!</p>
+<div>
+  <h1>Chat App</h1>
+  <div *ngIf="messages.length > 0">
+    <ul>
+      <li *ngFor="let message of messages">{{ message }}</li>
+    </ul>
+  </div>
+  <div>
+    <input [(ngModel)]="user" placeholder="Username" />
+    <input [(ngModel)]="message" placeholder="Message" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

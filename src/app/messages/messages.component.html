@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <mat-card>
+                <mat-card-content *ngIf="message">
+                    <div *ngFor="let mes of msgs">
+                        <div class="container discussion" *ngIf="mes.senderId!==userDetails.id">
+                            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Avatar">
+                            <p>{{mes.contenu}}</p>
+                            <span class="time-right">{{mes.dateMessage| date:"MM/dd/yy HH:mm"}}</span>
+                        </div>
+
+                        <div class="container discussion darker" *ngIf="mes.senderId==userDetails.id">
+                            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Avatar"
+                                class="right">
+                            <p>{{mes.contenu}}</p>
+                            <span class="time-left">{{mes.dateMessage| date:"MM/dd/yy HH:mm"}}</span>
+                        </div>
+
+                    </div>
+                    <div>
+                        
+                        <div>
+                            
+                            <input [(ngModel)]="msg" placeholder="Message" />
+                            <button (click)="sendMessage()">Send</button>
+                        </div>
+                    </div>
+
+
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-4">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Discussions</mat-card-title>
+
+                </mat-card-header>
+                <mat-card-content>
+                    <div *ngFor="let m of messages">
+                        <div *ngIf="m.senderName ==userDetails.fullName" role="listitem"><a class="menu-button" class="exemple" mat-flat-button
+                                (click)="getSingleMessage(m.message,m.messageId)"
+                                align="left">{{m.receiverName|titlecase}}</a></div>
+                                <div *ngIf="m.receiverName ==userDetails.fullName" role="listitem"><a class="menu-button" class="exemple" mat-flat-button
+                                    (click)="getSingleMessage(m.message,m.messageId)"
+                                    align="left">{{m.senderName|titlecase}}</a></div>
+
+                                </div>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

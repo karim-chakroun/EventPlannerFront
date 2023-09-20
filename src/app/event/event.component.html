@@ -1,6 +1,6 @@
 <div class="container">
     <mat-stepper #stepper>
-        <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+        <mat-step [stepControl]="firstFormGroup" >
             <form [formGroup]="firstFormGroup">
                 <ng-template matStepLabel>Add a cover photo:</ng-template>
 
@@ -16,7 +16,7 @@
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+        <mat-step [stepControl]="secondFormGroup" >
             <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>Fill out your address</ng-template>
 

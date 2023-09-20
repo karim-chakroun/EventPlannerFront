@@ -200,4 +200,10 @@ body {
   .container{
     background:#fafafa ;
   }
+  .featurette-heading{
+    margin-left: 30px;
+  }
+  .lead{
+    margin-left: 40px;
+  }
 

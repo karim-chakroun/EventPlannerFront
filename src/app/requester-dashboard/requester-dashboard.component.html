@@ -1,1 +1,28 @@
-<p>requester-dashboard works!</p>
+<div class="container">
+    <div class="row pt-2">
+        <div class="col-md-12">
+            <mat-card class="text-left">
+                <h4 class="card-title border-bottom">Vertical Bar Charts</h4>
+                <ngx-charts-bar-vertical [view]="[1000,400]" [results]="Stat" [xAxisLabel]="'Services'"
+                    [scheme]="colorScheme" [legendTitle]="'Travel Chart'" [yAxisLabel]="'Number of participations'"
+                    [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true"
+                    [gradient]="true">
+                </ngx-charts-bar-vertical>
+            </mat-card>
+            
+        </div>
+        <div class="col-md-12">
+            <mat-card>
+                <div class=" text-left">
+                    <h4 >Advanced Pie Charts</h4>
+                    <ngx-charts-advanced-pie-chart [results]="Stat" [gradient]="true" [scheme]="colorScheme">
+                    </ngx-charts-advanced-pie-chart>
+                </div>
+
+            </mat-card>
+            
+        </div>
+
+
+    </div>
+</div>

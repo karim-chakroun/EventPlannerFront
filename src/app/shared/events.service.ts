@@ -35,4 +35,8 @@ export class EventsService {
   deleteParticipation(Id){
     return this.http.delete(this.BaseURI+ '/Participation/'+Id);
   }
+
+  getStats(userId){
+    return this.http.get(this.BaseURI+ '/Event/stats?userId='+userId);
+  }
 }

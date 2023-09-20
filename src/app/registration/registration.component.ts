@@ -14,13 +14,14 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.service.formModel.reset();
     if(localStorage.getItem('token') != null)
-    this.router.navigateByUrl('/accueil');
+    this.router.navigateByUrl('/dashboard');
   }
 
   onSubmit() {
     this.service.register().subscribe(
       (res: any) => {
         if (res.succeeded) {
+          this.router.navigateByUrl('/login');
           this.service.formModel.reset();
           //this.toastr.success('New user created!', 'Registration successful.');
         } else {

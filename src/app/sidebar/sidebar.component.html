@@ -11,7 +11,7 @@
 
 <mat-sidenav-container fxLayout="column">
   <mat-sidenav class="mat-elevation-z8" #drawer mode="side" opened>
-    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/providerDashboard']" mat-button
+    <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/requesterDashboard']" mat-button
       class="menu-button">
       <mat-icon>dashboard</mat-icon>
       <span>Requester Dashboard</span>
@@ -30,6 +30,10 @@
     <button [routerLink]="['/profile']" mat-button class="menu-button">
       <mat-icon>account_circle</mat-icon>
       <span>Profil</span>
+    </button>
+    <button [routerLink]="['/messages']" mat-button class="menu-button">
+      <mat-icon> message</mat-icon>
+      <span>Messages</span>
     </button>
     <button *ngIf="service.roleMatch(['DEMANDEUR'])" [routerLink]="['/Offres']" mat-button class="menu-button">
       <mat-icon>local_offer</mat-icon>
